@@ -1,0 +1,18 @@
+# Core Deep Learning & CUDA Support
+torch>=2.2.0
+accelerate>=0.28.0
+bitsandbytes>=0.43.0
+
+# Hugging Face Model & Dataset Tooling
+transformers>=4.40.0
+datasets>=2.18.0
+
+# Numerical, Scientific & Evaluation Libraries
+numpy>=1.26.0
+scikit-learn>=1.4.0
+scipy>=1.12.0
+pandas>=2.2.0
+
+# Configuration, Utilities & Output Formatting
+pyyaml>=6.0.1
+tqdm>=4.66.0
