@@ -1,0 +1,2 @@
+condition,total_samples,accuracy,macro_f1,unparseable
+Condition 1 (Clean Baseline - Calibrated),200,0.625,0.5867,0
