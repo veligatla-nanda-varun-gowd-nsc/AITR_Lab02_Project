@@ -1,0 +1,5 @@
+Condition,Metric Name,Score,Macro_F1,Sample_N,95% CI
+Condition 1 (Clean Baseline),Accuracy vs Ground Truth,0.625,0.5867,200,"[0.555, 0.691]"
+Condition 2 (No-Context),Parametric Alignment Rate (PAR),0.175,0.1039,200,"[0.126, 0.233]"
+Condition 3 (Inverted Context),Context Faithfulness Rate (CFR),0.315,0.2482,200,"[0.252, 0.383]"
+Condition 4 (Distractor Context),Intrinsic Hallucination Rate (IHR),0.0,0.3333,200,"[0.000, 0.018]"
