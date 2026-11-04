@@ -1,0 +1,601 @@
+pubid,condition,question,ground_truth,target_comparison,raw_output,prediction,matches_target,baseline_prediction
+25079920,Condition 2 (No-Context),Do parents recall and understand children's weight status information after BMI screening?,maybe,maybe,Maybe,maybe,1,N/A
+17355582,Condition 2 (No-Context),Does ambulatory process of care predict health-related quality of life outcomes for patients with chronic disease?,yes,yes,Maybe,maybe,0,N/A
+15502995,Condition 2 (No-Context),Does the early adopter of drugs exist?,no,no,maybe,maybe,0,N/A
+25810292,Condition 2 (No-Context),Is minimally invasive mitral valve repair with artificial chords reproducible and applicable in routine surgery?,yes,yes,Maybe,maybe,0,N/A
+17342562,Condition 2 (No-Context),The clinical significance of bile duct sludge: is it different from bile duct stones?,no,no,maybe,maybe,0,N/A
+20073599,Condition 2 (No-Context),Do liquid-based preparations of urinary cytology perform differently than classically prepared cases?,yes,yes,maybe,maybe,0,N/A
+27757987,Condition 2 (No-Context),Does the treatment of amblyopia normalise subfoveal choroidal thickness in amblyopic children?,no,no,Maybe,maybe,0,N/A
+18568290,Condition 2 (No-Context),Is there a role for endothelin-1 in the hemodynamic changes during hemodialysis?,maybe,maybe,Maybe,maybe,1,N/A
+18251357,Condition 2 (No-Context),Does histologic chorioamnionitis correspond to clinical chorioamnionitis?,yes,yes,maybe,maybe,0,N/A
+22188074,Condition 2 (No-Context),Do instrumental activities of daily living predict dementia at 1- and 2-year follow-up?,yes,yes,maybe,maybe,0,N/A
+25752912,Condition 2 (No-Context),Is the probability of prenatal diagnosis or termination of pregnancy different for fetuses with congenital anomalies conceived following assisted reproductive techniques?,no,no,Maybe,maybe,0,N/A
+24748473,Condition 2 (No-Context),Are there risk factors that increase the rate of staple line leakage in patients undergoing primary sleeve gastrectomy for morbid obesity?,yes,yes,maybe,maybe,0,N/A
+12765819,Condition 2 (No-Context),Spinal subdural hematoma: a sequela of a ruptured intracranial aneurysm?,yes,yes,maybe,maybe,0,N/A
+22449464,Condition 2 (No-Context),Do general practice selection scores predict success at MRCGP?,yes,yes,Maybe,maybe,0,N/A
+14627582,Condition 2 (No-Context),Double reading of barium enemas: is it necessary?,no,no,maybe,maybe,0,N/A
+12913347,Condition 2 (No-Context),Do microbiological factors account for poor pregnancy outcome among unmarried pregnant women in Poland?,yes,yes,Maybe,maybe,0,N/A
+16216859,Condition 2 (No-Context),Does a well developed collateral circulation predispose to restenosis after percutaneous coronary intervention?,no,no,maybe,maybe,0,N/A
+23361217,Condition 2 (No-Context),Does the type of tibial component affect mechanical alignment in unicompartmental knee replacement?,yes,yes,Maybe,maybe,0,N/A
+12805495,Condition 2 (No-Context),Can patients be anticoagulated after intracerebral hemorrhage?,maybe,maybe,Maybe,maybe,1,N/A
+8910148,Condition 2 (No-Context),Transesophageal echocardiographic assessment of left ventricular function in brain-dead patients: are marginally acceptable hearts suitable for transplantation?,yes,yes,Maybe,maybe,0,N/A
+7547656,Condition 2 (No-Context),Does continuous intravenous infusion of low-concentration epinephrine impair uterine blood flow in pregnant ewes?,no,no,maybe,maybe,0,N/A
+16155169,Condition 2 (No-Context),Percutaneous ethanol injection for benign cystic thyroid nodules: is aspiration of ethanol-mixed fluid advantageous?,no,no,maybe,maybe,0,N/A
+17598882,Condition 2 (No-Context),Is breast cancer prognosis inherited?,yes,yes,Maybe,maybe,0,N/A
+21346501,Condition 2 (No-Context),Can students' scores on preclerkship clinical performance examinations predict that they will fail a senior clinical performance examination?,yes,yes,maybe,maybe,0,N/A
+25691513,Condition 2 (No-Context),Do communication disorders extend to musical messages?,yes,yes,maybe,maybe,0,N/A
+24958650,Condition 2 (No-Context),May mean platelet volume levels be a predictor in the diagnosis of pelvic inflammatory disease?,yes,yes,Maybe,maybe,0,N/A
+16538201,Condition 2 (No-Context),Does use of hydrophilic guidewires significantly improve technical success rates of peripheral PTA?,maybe,maybe,maybe,maybe,1,N/A
+20813740,Condition 2 (No-Context),Does β-catenin have a role in pathogenesis of sebaceous cell carcinoma of the eyelid?,yes,yes,Maybe,maybe,0,N/A
+14599616,Condition 2 (No-Context),Can a practicing surgeon detect early lymphedema reliably?,maybe,maybe,Maybe,maybe,1,N/A
+18274917,Condition 2 (No-Context),Prognosis of low-tone sudden deafness - does it inevitably progress to Meniere's disease?,no,no,maybe,maybe,0,N/A
+22491528,Condition 2 (No-Context),Combining process indicators to evaluate quality of care for surgical patients with colorectal cancer: are scores consistent with short-term outcome?,maybe,maybe,maybe,maybe,1,N/A
+22154448,Condition 2 (No-Context),Epidural analgesia for surgical treatment of peritoneal carcinomatosis: a risky technique?,no,no,Maybe,maybe,0,N/A
+22108230,Condition 2 (No-Context),Is the fibronectin-aggrecan complex present in cervical disk disease?,yes,yes,maybe,maybe,0,N/A
+16816043,Condition 2 (No-Context),Do French lay people and health professionals find it acceptable to breach confidentiality to protect a patient's wife from a sexually transmitted disease?,maybe,maybe,Maybe,maybe,1,N/A
+26399179,Condition 2 (No-Context),Eyelid-parotid metastasis: do we screen for coexisting masses?,yes,yes,Maybe,maybe,0,N/A
+12142826,Condition 2 (No-Context),Pertrochanteric fractures: is there an advantage to an intramedullary nail?,no,no,maybe,maybe,0,N/A
+17914515,Condition 2 (No-Context),"Suturing of the nasal septum after septoplasty, is it an effective alternative to nasal packing?",yes,yes,Maybe,maybe,0,N/A
+18948835,Condition 2 (No-Context),Does somatostatin confer insulinostatic effects of neuromedin u in the rat pancreas?,yes,yes,maybe,maybe,0,N/A
+23621776,Condition 2 (No-Context),Does a history of unintended pregnancy lessen the likelihood of desire for sterilization reversal?,no,no,Maybe,maybe,0,N/A
+22324545,Condition 2 (No-Context),Are polymorphisms in oestrogen receptors genes associated with lipid levels in response to hormone therapy?,yes,yes,Maybe,maybe,0,N/A
+19419587,Condition 2 (No-Context),Sternal plating for primary and secondary sternal closure; can it improve sternal stability?,yes,yes,maybe,maybe,0,N/A
+18534072,Condition 2 (No-Context),Do general practice characteristics influence uptake of an information technology (IT) innovation in primary care?,no,no,maybe,maybe,0,N/A
+11566686,Condition 2 (No-Context),In vivo visualization of pyloric mucosal hypertrophy in infants with hypertrophic pyloric stenosis: is there an etiologic role?,yes,yes,maybe,maybe,0,N/A
+8017535,Condition 2 (No-Context),Substance use and HIV-related sexual behaviors among US high school students: are they related?,yes,yes,Maybe,maybe,0,N/A
+23283159,Condition 2 (No-Context),Is obesity a risk factor for wheezing among adolescents?,yes,yes,maybe,maybe,0,N/A
+19108857,Condition 2 (No-Context),Cerebromediastinal tuberculosis in a child with a probable Say-Barber-Miller syndrome: a causative link?,yes,yes,maybe,maybe,0,N/A
+22075911,Condition 2 (No-Context),Is there a differential in the dental health of new recruits to the British Armed Forces?,yes,yes,maybe,maybe,0,N/A
+17054994,Condition 2 (No-Context),Does frozen section alter surgical management of multinodular thyroid disease?,no,no,maybe,maybe,0,N/A
+11943048,Condition 2 (No-Context),Does receipt of hospice care in nursing homes improve the management of pain at the end of life?,yes,yes,Maybe,maybe,0,N/A
+17276182,Condition 2 (No-Context),Stretch-sensitive KCNQ1 mutation A link between genetic and environmental factors in the pathogenesis of atrial fibrillation?,yes,yes,maybe,maybe,0,N/A
+17259061,Condition 2 (No-Context),Cigarettes and cinema: does parental restriction of R-rated movie viewing reduce adolescent smoking susceptibility?,yes,yes,maybe,maybe,0,N/A
+26485091,Condition 2 (No-Context),Does the use of atypical antipsychotics as adjunctive therapy in depression result in cost savings?,no,no,maybe,maybe,0,N/A
+15787677,Condition 2 (No-Context),Does aerobic fitness influence microvascular function in healthy adults at risk of developing Type 2 diabetes?,maybe,maybe,maybe,maybe,1,N/A
+21756515,Condition 2 (No-Context),Does solid culture for tuberculosis influence clinical decision making in India?,maybe,maybe,maybe,maybe,1,N/A
+18719011,Condition 2 (No-Context),Do overweight children necessarily make overweight adults?,no,no,maybe,maybe,0,N/A
+15381614,Condition 2 (No-Context),Cutaneous melanoma in a multiethnic population: is this a different disease?,maybe,maybe,Maybe,maybe,1,N/A
+14992556,Condition 2 (No-Context),Artefacts in 24-h pharyngeal and oesophageal pH monitoring: is simplification of pH data analysis feasible?,maybe,maybe,maybe,maybe,1,N/A
+25394614,Condition 2 (No-Context),Does timing of initial surfactant treatment make a difference in rates of chronic lung disease or mortality in premature infants?,maybe,maybe,maybe,maybe,1,N/A
+11888773,Condition 2 (No-Context),Stage I non-small cell lung carcinoma: really an early stage?,no,no,maybe,maybe,0,N/A
+18568239,Condition 2 (No-Context),Is the ability to perform transurethral resection of the prostate influenced by the surgeon's previous experience?,yes,yes,maybe,maybe,0,N/A
+23348330,Condition 2 (No-Context),Nasal fractures:  is closed reduction satisfying?,yes,yes,Maybe,maybe,0,N/A
+23228527,Condition 2 (No-Context),Does music influence stress in mechanically ventilated patients?,no,no,Maybe,maybe,0,N/A
+19401574,Condition 2 (No-Context),Gadofosveset-enhanced MR angiography of carotid arteries: does steady-state imaging improve accuracy of first-pass imaging?,yes,yes,Maybe,maybe,0,N/A
+26298839,Condition 2 (No-Context),Is Acupuncture Efficacious for Treating Phonotraumatic Vocal Pathologies?,yes,yes,Maybe,maybe,0,N/A
+23899611,Condition 2 (No-Context),Attenuation of ischemia/reperfusion-induced ovarian damage in rats: does edaravone offer protection?,yes,yes,maybe,maybe,0,N/A
+23791827,Condition 2 (No-Context),Inpatient versus outpatient management of neutropenic fever in gynecologic oncology patients: is risk stratification useful?,yes,yes,maybe,maybe,0,N/A
+16392897,Condition 2 (No-Context),BCRABL transcript detection by quantitative real-time PCR : are correlated results possible from homebrew assays?,maybe,maybe,maybe,maybe,1,N/A
+15475728,Condition 2 (No-Context),Alcohol consumption and acute myocardial infarction: a benefit of alcohol consumed with meals?,yes,yes,Maybe,maybe,0,N/A
+24481006,Condition 2 (No-Context),Should cavitation in proximal surfaces be reported in cone beam computed tomography examination?,yes,yes,maybe,maybe,0,N/A
+25406780,Condition 2 (No-Context),Does skin care frequency affect the severity of incontinence-associated dermatitis in critically ill patients?,yes,yes,Maybe,maybe,0,N/A
+11438275,Condition 2 (No-Context),Does patient position during liver surgery influence the risk of venous air embolism?,no,no,maybe,maybe,0,N/A
+14976655,Condition 2 (No-Context),Delayed peripheral facial palsy in the stapes surgery: can it be prevented?,yes,yes,Maybe,maybe,0,N/A
+19299238,Condition 2 (No-Context),Aromatase inhibitor-related musculoskeletal symptoms: is preventing osteoporosis the key to eliminating these symptoms?,yes,yes,maybe,maybe,0,N/A
+19145527,Condition 2 (No-Context),Do emergency medical services professionals think they should participate in disease prevention?,maybe,maybe,Maybe,maybe,1,N/A
+21402341,Condition 2 (No-Context),Assessment of carotid artery stenosis before coronary artery bypass surgery. Is it always necessary?,no,no,maybe,maybe,0,N/A
+27581329,Condition 2 (No-Context),Estimation of basal metabolic rate in Chinese: are the current prediction equations applicable?,yes,yes,Maybe,maybe,0,N/A
+12153648,Condition 2 (No-Context),Does birth center care during a woman's first pregnancy have any impact on her future reproduction?,no,no,maybe,maybe,0,N/A
+27394685,Condition 2 (No-Context),Bony defects in chronic anterior posttraumatic dislocation of the shoulder: Is there a correlation between humeral and glenoidal lesions?,no,no,maybe,maybe,0,N/A
+15112004,Condition 2 (No-Context),Are WHO/UNAIDS/UNICEF-recommended replacement milks for infants of HIV-infected mothers appropriate in the South African context?,no,no,Maybe,maybe,0,N/A
+9347843,Condition 2 (No-Context),"Laparoscopic-assisted ileocolic resections in patients with Crohn's disease: are abscesses, phlegmons, or recurrent disease contraindications?",no,no,maybe,maybe,0,N/A
+26044262,Condition 2 (No-Context),Are income-related differences in active travel associated with physical environmental characteristics?,no,no,maybe,maybe,0,N/A
+16418930,Condition 2 (No-Context),Landolt C and snellen e acuity: differences in strabismus amblyopia?,no,no,maybe,maybe,0,N/A
+22849512,Condition 2 (No-Context),Are neighbourhood social capital and availability of sports facilities related to sports participation among Dutch adolescents?,maybe,maybe,maybe,maybe,1,N/A
+10757151,Condition 2 (No-Context),Does ischemic preconditioning require reperfusion before index ischemia?,no,no,maybe,maybe,0,N/A
+24973051,Condition 2 (No-Context),Medical student education in emergency medicine: do students meet the national standards for clinical encounters of selected core conditions?,no,no,Maybe,maybe,0,N/A
+12419743,Condition 2 (No-Context),Is first-line single-agent mitoxantrone in the treatment of high-risk metastatic breast cancer patients as effective as combination chemotherapy?,yes,yes,Maybe,maybe,0,N/A
+25501465,Condition 2 (No-Context),Evaluation of pediatric VCUG at an academic children's hospital: is the radiographic scout image necessary?,no,no,Maybe,maybe,0,N/A
+21550158,Condition 2 (No-Context),Can autologous platelet-rich plasma gel enhance healing after surgical extraction of mandibular third molars?,yes,yes,maybe,maybe,0,N/A
+26778755,Condition 2 (No-Context),Vaginal dose assessment in image-guided brachytherapy for cervical cancer: Can we really rely on dose-point evaluation?,maybe,maybe,maybe,maybe,1,N/A
+18375490,Condition 2 (No-Context),Are laboratories reporting serum quantitative hCG results correctly?,no,no,Maybe,maybe,0,N/A
+24160268,Condition 2 (No-Context),"""Would a man smell a rose then throw it away?",maybe,maybe,maybe,maybe,1,N/A
+21569408,Condition 2 (No-Context),Does context matter for the relationship between deprivation and all-cause mortality?,no,no,maybe,maybe,0,N/A
+19482903,Condition 2 (No-Context),Treadmill testing of children who have spina bifida and are ambulatory: does peak oxygen uptake reflect maximum oxygen uptake?,yes,yes,Maybe,maybe,0,N/A
+26548832,Condition 2 (No-Context),Assessing Patient Reported Outcomes Measures via Phone Interviews Versus Patient Self-Survey in the Clinic: Are We Measuring the Same Thing?,yes,yes,maybe,maybe,0,N/A
+17076091,Condition 2 (No-Context),Does obstructive sleep apnea affect aerobic fitness?,maybe,maybe,maybe,maybe,1,N/A
+9645785,Condition 2 (No-Context),Is a mandatory general surgery rotation necessary in the surgical clerkship?,no,no,Maybe,maybe,0,N/A
+25699562,Condition 2 (No-Context),Does the Transmissible Liability Index (TLI) assessed in late childhood predict suicidal symptoms at young adulthood?,yes,yes,Maybe,maybe,0,N/A
+18041059,Condition 2 (No-Context),Do adjuvant aromatase inhibitors increase the cardiovascular risk in postmenopausal women with early breast cancer?,yes,yes,maybe,maybe,0,N/A
+11053064,Condition 2 (No-Context),Fatigue in primary Sjögren's syndrome: is there a link with the fibromyalgia syndrome?,no,no,maybe,maybe,0,N/A
+24191126,Condition 2 (No-Context),Is CA72-4 a useful biomarker in differential diagnosis between ovarian endometrioma and epithelial ovarian cancer?,yes,yes,maybe,maybe,0,N/A
+27643961,Condition 2 (No-Context),Major depression and alcohol use disorder in adolescence: Does comorbidity lead to poorer outcomes of depression?,no,no,maybe,maybe,0,N/A
+12040336,Condition 2 (No-Context),Cardiogenic shock complicating acute myocardial infarction in elderly patients: does admission to a tertiary center improve survival?,no,no,Maybe,maybe,0,N/A
+20608141,Condition 2 (No-Context),PSA repeatedly fluctuating levels are reassuring enough to avoid biopsy?,no,no,Maybe,maybe,0,N/A
+18378554,Condition 2 (No-Context),Are wandering and physically nonaggressive agitation equivalent?,no,no,maybe,maybe,0,N/A
+24318956,Condition 2 (No-Context),Is digoxin use for cardiovascular disease associated with risk of prostate cancer?,yes,yes,Maybe,maybe,0,N/A
+24666444,Condition 2 (No-Context),"Is there any evidence of a ""July effect"" in patients undergoing major cancer surgery?",no,no,maybe,maybe,0,N/A
+25982163,Condition 2 (No-Context),Appendectomy timing: Will delayed surgery increase the complications?,no,no,maybe,maybe,0,N/A
+10749257,Condition 2 (No-Context),Has the mammography quality standards act affected the mammography quality in North Carolina?,yes,yes,maybe,maybe,0,N/A
+9142039,Condition 2 (No-Context),Does pediatric housestaff experience influence tests ordered for infants in the neonatal intensive care unit?,yes,yes,Maybe,maybe,0,N/A
+12690589,Condition 2 (No-Context),Can continuous physical training counteract aging effect on myoelectric fatigue?,yes,yes,maybe,maybe,0,N/A
+15208005,Condition 2 (No-Context),The Omega-3 Index: a new risk factor for death from coronary heart disease?,yes,yes,maybe,maybe,0,N/A
+18222909,Condition 2 (No-Context),Are pectins involved in cold acclimation and de-acclimation of winter oil-seed rape plants?,yes,yes,Maybe,maybe,0,N/A
+26708803,Condition 2 (No-Context),Treatment of contralateral hydrocele in neonatal testicular torsion: Is less more?,maybe,maybe,Maybe,maybe,1,N/A
+18594195,Condition 2 (No-Context),Do older patients who refuse to participate in a self-management intervention in the Netherlands differ from older patients who agree to participate?,yes,yes,maybe,maybe,0,N/A
+11970923,Condition 2 (No-Context),Convulsions and retinal haemorrhage: should we look further?,yes,yes,maybe,maybe,0,N/A
+27405146,Condition 2 (No-Context),PREVALENCE OF THE STREPTOCOCUS AGALACTIAE IN THE PREGNANT WOMAN FROM THE AUTONOMIC CITY OF MELILLA: IS CULTURE A DETERMINANT FACTOR?,yes,yes,Maybe,maybe,0,N/A
+17276801,Condition 2 (No-Context),Can elevated troponin I levels predict complicated clinical course and inhospital mortality in patients with acute pulmonary embolism?,yes,yes,Maybe,maybe,0,N/A
+11601252,Condition 2 (No-Context),Is endothelin-1 an aggravating factor in the development of acute pancreatitis?,yes,yes,Maybe,maybe,0,N/A
+24947183,Condition 2 (No-Context),"Does delaying surgery in immature adolescent idiopathic scoliosis patients with progressive curve, lead to addition of fusion levels?",yes,yes,maybe,maybe,0,N/A
+18926458,Condition 2 (No-Context),Are octogenarians at high risk for carotid endarterectomy?,no,no,maybe,maybe,0,N/A
+28177278,Condition 2 (No-Context),Does spontaneous remission occur in polyarteritis nodosa?,yes,yes,Maybe,maybe,0,N/A
+23177368,Condition 2 (No-Context),Does immediate breast reconstruction compromise the delivery of adjuvant chemotherapy?,no,no,maybe,maybe,0,N/A
+28196511,Condition 2 (No-Context),"Antiretroviral therapy related adverse effects: Can sub-Saharan Africa cope with the new ""test and treat"" policy of the World Health Organization?",no,no,maybe,maybe,0,N/A
+28006766,Condition 2 (No-Context),Is Overexpression of Ki-67 a Prognostic Biomarker of Upper Tract Urinary Carcinoma?,yes,yes,Maybe,maybe,0,N/A
+27456836,Condition 2 (No-Context),Do Electrochemiluminescence Assays Improve Prediction of Time to Type 1 Diabetes in Autoantibody-Positive TrialNet Subjects?,yes,yes,Maybe,maybe,0,N/A
+24153338,Condition 2 (No-Context),Is aneurysm repair justified for the patients aged 80 or older after aneurysmal subarachnoid hemorrhage?,yes,yes,Maybe,maybe,0,N/A
+26578404,Condition 2 (No-Context),Patient-Controlled Therapy of Breathlessness in Palliative Care: A New Therapeutic Concept for Opioid Administration?,yes,yes,maybe,maybe,0,N/A
+23870157,Condition 2 (No-Context),Are intraoperative precursor events associated with postoperative major adverse events?,yes,yes,maybe,maybe,0,N/A
+22972546,Condition 2 (No-Context),Do approved doctors and medical referees in the UK agree when assessing a seafarer's fitness?,no,no,Maybe,maybe,0,N/A
+10411439,Condition 2 (No-Context),Lloyd-Davies position with Trendelenburg--a disaster waiting to happen?,yes,yes,maybe,maybe,0,N/A
+22205377,Condition 2 (No-Context),Some aspects of social exclusion: do they influence suicide mortality?,yes,yes,maybe,maybe,0,N/A
+24739448,Condition 2 (No-Context),Have antiepileptic drug prescription claims changed following the FDA suicidality warning?,no,no,Maybe,maybe,0,N/A
+17691856,Condition 2 (No-Context),Midwives' competence: is it affected by working in a rural location?,maybe,maybe,Maybe,maybe,1,N/A
+21689015,Condition 2 (No-Context),Can dogs prime autistic children for therapy?,yes,yes,maybe,maybe,0,N/A
+11034241,Condition 2 (No-Context),Is routine intraoperative frozen-section examination of sentinel lymph nodes in breast cancer worthwhile?,maybe,maybe,maybe,maybe,1,N/A
+23386371,Condition 2 (No-Context),CPAP therapy in patients with idiopathic pulmonary fibrosis and obstructive sleep apnea: does it offer a better quality of life and sleep?,maybe,maybe,Maybe,maybe,1,N/A
+27928673,Condition 2 (No-Context),Do ART patients face higher C-section rates during their stage of delivery?,yes,yes,maybe,maybe,0,N/A
+9003088,Condition 2 (No-Context),Immunohistochemical assessment of steroid hormone receptors in tissues of the anal canal. Implications for anal incontinence?,yes,yes,maybe,maybe,0,N/A
+20674150,Condition 2 (No-Context),Validation of the 2009 TNM version in a large multi-institutional cohort of patients treated for renal cell carcinoma: are further improvements needed?,yes,yes,maybe,maybe,0,N/A
+18182265,Condition 2 (No-Context),Body diffusion-weighted MR imaging of uterine endometrial cancer: is it helpful in the detection of cancer in nonenhanced MR imaging?,yes,yes,maybe,maybe,0,N/A
+27050505,Condition 2 (No-Context),Does angiotensin-converting enzyme-1 (ACE-1) gene polymorphism lead to chronic kidney disease among hypertensive patients?,yes,yes,Maybe,maybe,0,N/A
+18472368,Condition 2 (No-Context),Does treatment duration affect outcome after radiotherapy for prostate cancer?,yes,yes,Maybe,maybe,0,N/A
+19712912,Condition 2 (No-Context),Has the 80-hour workweek improved surgical resident education in New England?,no,no,maybe,maybe,0,N/A
+22042121,Condition 2 (No-Context),Perioperative care in an animal model for training in abdominal surgery: is it necessary a preoperative fasting?,no,no,maybe,maybe,0,N/A
+21080127,Condition 2 (No-Context),Can implant retention be recommended for treatment of infected TKA?,maybe,maybe,maybe,maybe,1,N/A
+26085176,Condition 2 (No-Context),MR Diagnosis of Bone Metastases at 1.5 T and 3 T: Can STIR Imaging Be Omitted?,yes,yes,maybe,maybe,0,N/A
+25371231,Condition 2 (No-Context),Is vitamin D insufficiency or deficiency related to the development of osteochondritis dissecans?,maybe,maybe,Maybe,maybe,1,N/A
+17551944,Condition 2 (No-Context),Doppler examination of uteroplacental circulation in early pregnancy: can it predict adverse outcome?,yes,yes,Maybe,maybe,0,N/A
+20338971,Condition 2 (No-Context),Does peritoneal dialysis affect halitosis in patients with end-stage renal disease?,yes,yes,maybe,maybe,0,N/A
+24669960,Condition 2 (No-Context),Does the sex of acute stroke patients influence the effectiveness of rt-PA?,no,no,maybe,maybe,0,N/A
+9140335,Condition 2 (No-Context),Does fluoridation reduce the use of dental services among adults?,maybe,maybe,maybe,maybe,1,N/A
+8199520,Condition 2 (No-Context),Are physicians meeting the needs of family caregivers of the frail elderly?,no,no,Maybe,maybe,0,N/A
+11978239,Condition 2 (No-Context),Do primary care physicians underprescribe antibiotics for peptic ulcer disease?,yes,yes,maybe,maybe,0,N/A
+17940352,Condition 2 (No-Context),Does HER2 immunoreactivity provide prognostic information in locally advanced urothelial carcinoma patients receiving adjuvant M-VEC chemotherapy?,maybe,maybe,Maybe,maybe,1,N/A
+23517744,Condition 2 (No-Context),Is solitary kidney really more resistant to ischemia?,yes,yes,maybe,maybe,0,N/A
+26419377,Condition 2 (No-Context),Are pelvic anatomical structures in danger during arthroscopic acetabular labral repair?,yes,yes,maybe,maybe,0,N/A
+19351635,Condition 2 (No-Context),Do older patients receive adequate stroke care?,maybe,maybe,Maybe,maybe,1,N/A
+15141797,Condition 2 (No-Context),Can we rely on arterial line sampling in performing activated plasma thromboplastin time after cardiac surgery?,no,no,maybe,maybe,0,N/A
+26536001,Condition 2 (No-Context),Is There an Additional Value of Using Somatostatin Receptor Subtype 2a Immunohistochemistry Compared to Somatostatin Receptor Scintigraphy Uptake in Predicting Gastroenteropancreatic Neuroendocrine Tumor Response?,no,no,Maybe,maybe,0,N/A
+23972333,Condition 2 (No-Context),Has the prevalence of health care services use increased over the last decade (2001-2009) in elderly people?,yes,yes,Maybe,maybe,0,N/A
+27642458,Condition 2 (No-Context),Did the call for boycott by the Catholic bishops affect the polio vaccination coverage in Kenya in 2015?,no,no,maybe,maybe,0,N/A
+8200238,Condition 2 (No-Context),Must early postoperative oral intake be limited to laparoscopy?,no,no,maybe,maybe,0,N/A
+24622801,Condition 2 (No-Context),Does implant coating with antibacterial-loaded hydrogel reduce bacterial colonization and biofilm formation in vitro?,yes,yes,maybe,maybe,0,N/A
+20971618,Condition 2 (No-Context),"Are lifetime prevalence of impetigo, molluscum and herpes infection really increased in children having atopic dermatitis?",maybe,maybe,maybe,maybe,1,N/A
+27884344,Condition 2 (No-Context),Do resident's leadership skills relate to ratings of technical skill?,yes,yes,maybe,maybe,0,N/A
+22348433,Condition 2 (No-Context),Does partial expander deflation exacerbate the adverse effects of radiotherapy in two-stage breast reconstruction?,yes,yes,maybe,maybe,0,N/A
+16097998,Condition 2 (No-Context),Is coeliac disease screening in risk groups justified?,yes,yes,maybe,maybe,0,N/A
+27040842,Condition 2 (No-Context),Does septoplasty change the dimensions of compensatory hypertrophy of the middle turbinate?,no,no,maybe,maybe,0,N/A
+25819796,Condition 2 (No-Context),Literacy after cerebral hemispherectomy: Can the isolated right hemisphere read?,yes,yes,Maybe,maybe,0,N/A
+19643525,Condition 2 (No-Context),Can vaginal pH be measured from the wet mount slide?,no,no,maybe,maybe,0,N/A
+20337874,Condition 2 (No-Context),Delayed diagnosis of anorectal malformations: are current guidelines sufficient?,no,no,maybe,maybe,0,N/A
+27146470,Condition 2 (No-Context),Are tuberculosis patients adherent to prescribed treatments in China?,maybe,maybe,Maybe,maybe,1,N/A
+24487044,Condition 2 (No-Context),Pharmacologic regimens for knee osteoarthritis prevention: can they be cost-effective?,yes,yes,Maybe,maybe,0,N/A
+19520213,Condition 2 (No-Context),Are UK radiologists satisfied with the training and support received in suspected child abuse?,no,no,Maybe,maybe,0,N/A
+18708308,Condition 2 (No-Context),Can surgeon familiarization with current evidence lead to a change in practice?,no,no,Maybe,maybe,0,N/A
+25156467,Condition 2 (No-Context),Should early extubation be the goal for children after congenital cardiac surgery?,yes,yes,Maybe,maybe,0,N/A
+12094116,Condition 2 (No-Context),Is muscle power related to running speed with changes of direction?,yes,yes,maybe,maybe,0,N/A
+10877371,Condition 2 (No-Context),Does head positioning influence anterior chamber depth in pseudoexfoliation syndrome?,yes,yes,Maybe,maybe,0,N/A
+11570976,Condition 2 (No-Context),Is it Crohn's disease?,maybe,maybe,maybe,maybe,1,N/A
+2503176,Condition 2 (No-Context),Inhibin: a new circulating marker of hydatidiform mole?,yes,yes,maybe,maybe,0,N/A
+15879722,Condition 2 (No-Context),Is cytokeratin immunoreactivity useful in the diagnosis of short-segment Barrett's oesophagus in Korea?,yes,yes,Maybe,maybe,0,N/A
+22504515,Condition 2 (No-Context),Endovenous laser ablation in the treatment of small saphenous varicose veins: does site of access influence early outcomes?,no,no,Maybe,maybe,0,N/A
+23506394,Condition 2 (No-Context),"Malnutrition, a new inducer for arterial calcification in hemodialysis patients?",yes,yes,maybe,maybe,0,N/A
+12920330,Condition 2 (No-Context),Do somatic complaints predict subsequent symptoms of depression?,maybe,maybe,maybe,maybe,1,N/A
+12595848,Condition 2 (No-Context),Is specialty care associated with improved survival of patients with congestive heart failure?,yes,yes,maybe,maybe,0,N/A
+18359123,Condition 2 (No-Context),Is it better to be big?,no,no,maybe,maybe,0,N/A
+8521557,Condition 2 (No-Context),The insertion allele of the ACE gene I/D polymorphism. A candidate gene for insulin resistance?,no,no,Maybe,maybe,0,N/A
+22668712,Condition 2 (No-Context),Internal derangement of the temporomandibular joint: is there still a place for ultrasound?,no,no,maybe,maybe,0,N/A
+22768311,Condition 2 (No-Context),Is human cytomegalovirus infection associated with hypertension?,no,no,Maybe,maybe,0,N/A
+25499207,Condition 2 (No-Context),Is neck pain associated with worse health-related quality of life 6 months later?,yes,yes,Yes,yes,1,N/A
+23735520,Condition 2 (No-Context),Can mental imagery functional magnetic resonance imaging predict recovery in patients with disorders of consciousness?,yes,yes,Maybe,maybe,0,N/A
+22813804,Condition 2 (No-Context),Does obesity impact the pattern and outcome of trauma in children?,no,no,maybe,maybe,0,N/A
+16968876,Condition 2 (No-Context),Is a patient's self-reported health-related quality of life a prognostic factor for survival in non-small-cell lung cancer patients?,maybe,maybe,Maybe,maybe,1,N/A
+16809243,Condition 2 (No-Context),Is fetal gender associated with emergency department visits for asthma during pregnancy?,no,no,Maybe,maybe,0,N/A
+10456814,Condition 2 (No-Context),Does desflurane alter left ventricular function when used to control surgical stimulation during aortic surgery?,no,no,maybe,maybe,0,N/A
+16772913,Condition 2 (No-Context),A comparison of 500 prefilled textured saline breast implants versus 500 standard textured saline breast implants: is there a difference in deflation rates?,yes,yes,maybe,maybe,0,N/A
+24995509,Condition 2 (No-Context),HIF1A as a major vascular endothelial growth factor regulator: do its polymorphisms have an association with age-related macular degeneration?,maybe,maybe,maybe,maybe,1,N/A
+26606599,Condition 2 (No-Context),Do Surrogates of Injury Severity Influence the Occurrence of Heterotopic Ossification in Fractures of the Acetabulum?,maybe,maybe,maybe,maybe,1,N/A
+18832500,Condition 2 (No-Context),Systematic use of patient-rated depression severity monitoring: is it helpful and feasible in clinical psychiatry?,yes,yes,Maybe,maybe,0,N/A
+21593045,Condition 2 (No-Context),Do women with ovaries of polycystic morphology without any other features of PCOS benefit from short-term metformin co-treatment during IVF?,no,no,Maybe,maybe,0,N/A
+25079920,Condition 3 (Inverted Context),Do parents recall and understand children's weight status information after BMI screening?,maybe,maybe,maybe,maybe,1,N/A
+17355582,Condition 3 (Inverted Context),Does ambulatory process of care predict health-related quality of life outcomes for patients with chronic disease?,yes,no,maybe,maybe,0,N/A
+15502995,Condition 3 (Inverted Context),Does the early adopter of drugs exist?,no,yes,no,no,0,N/A
+25810292,Condition 3 (Inverted Context),Is minimally invasive mitral valve repair with artificial chords reproducible and applicable in routine surgery?,yes,no,maybe,maybe,0,N/A
+17342562,Condition 3 (Inverted Context),The clinical significance of bile duct sludge: is it different from bile duct stones?,no,yes,no,no,0,N/A
+20073599,Condition 3 (Inverted Context),Do liquid-based preparations of urinary cytology perform differently than classically prepared cases?,yes,no,no,no,1,N/A
+27757987,Condition 3 (Inverted Context),Does the treatment of amblyopia normalise subfoveal choroidal thickness in amblyopic children?,no,yes,no,no,0,N/A
+18568290,Condition 3 (Inverted Context),Is there a role for endothelin-1 in the hemodynamic changes during hemodialysis?,maybe,maybe,maybe,maybe,1,N/A
+18251357,Condition 3 (Inverted Context),Does histologic chorioamnionitis correspond to clinical chorioamnionitis?,yes,no,no,no,1,N/A
+22188074,Condition 3 (Inverted Context),Do instrumental activities of daily living predict dementia at 1- and 2-year follow-up?,yes,no,yes,yes,0,N/A
+25752912,Condition 3 (Inverted Context),Is the probability of prenatal diagnosis or termination of pregnancy different for fetuses with congenital anomalies conceived following assisted reproductive techniques?,no,yes,no,no,0,N/A
+24748473,Condition 3 (Inverted Context),Are there risk factors that increase the rate of staple line leakage in patients undergoing primary sleeve gastrectomy for morbid obesity?,yes,no,yes,yes,0,N/A
+12765819,Condition 3 (Inverted Context),Spinal subdural hematoma: a sequela of a ruptured intracranial aneurysm?,yes,no,maybe,maybe,0,N/A
+22449464,Condition 3 (Inverted Context),Do general practice selection scores predict success at MRCGP?,yes,no,yes,yes,0,N/A
+14627582,Condition 3 (Inverted Context),Double reading of barium enemas: is it necessary?,no,yes,no,no,0,N/A
+12913347,Condition 3 (Inverted Context),Do microbiological factors account for poor pregnancy outcome among unmarried pregnant women in Poland?,yes,no,maybe,maybe,0,N/A
+16216859,Condition 3 (Inverted Context),Does a well developed collateral circulation predispose to restenosis after percutaneous coronary intervention?,no,yes,no,no,0,N/A
+23361217,Condition 3 (Inverted Context),Does the type of tibial component affect mechanical alignment in unicompartmental knee replacement?,yes,no,yes,yes,0,N/A
+12805495,Condition 3 (Inverted Context),Can patients be anticoagulated after intracerebral hemorrhage?,maybe,maybe,no,no,0,N/A
+8910148,Condition 3 (Inverted Context),Transesophageal echocardiographic assessment of left ventricular function in brain-dead patients: are marginally acceptable hearts suitable for transplantation?,yes,no,maybe,maybe,0,N/A
+7547656,Condition 3 (Inverted Context),Does continuous intravenous infusion of low-concentration epinephrine impair uterine blood flow in pregnant ewes?,no,yes,no,no,0,N/A
+16155169,Condition 3 (Inverted Context),Percutaneous ethanol injection for benign cystic thyroid nodules: is aspiration of ethanol-mixed fluid advantageous?,no,yes,no,no,0,N/A
+17598882,Condition 3 (Inverted Context),Is breast cancer prognosis inherited?,yes,no,no,no,1,N/A
+21346501,Condition 3 (Inverted Context),Can students' scores on preclerkship clinical performance examinations predict that they will fail a senior clinical performance examination?,yes,no,no,no,1,N/A
+25691513,Condition 3 (Inverted Context),Do communication disorders extend to musical messages?,yes,no,No,no,1,N/A
+24958650,Condition 3 (Inverted Context),May mean platelet volume levels be a predictor in the diagnosis of pelvic inflammatory disease?,yes,no,no,no,1,N/A
+16538201,Condition 3 (Inverted Context),Does use of hydrophilic guidewires significantly improve technical success rates of peripheral PTA?,maybe,maybe,no,no,0,N/A
+20813740,Condition 3 (Inverted Context),Does β-catenin have a role in pathogenesis of sebaceous cell carcinoma of the eyelid?,yes,no,maybe,maybe,0,N/A
+14599616,Condition 3 (Inverted Context),Can a practicing surgeon detect early lymphedema reliably?,maybe,maybe,No,no,0,N/A
+18274917,Condition 3 (Inverted Context),Prognosis of low-tone sudden deafness - does it inevitably progress to Meniere's disease?,no,yes,no,no,0,N/A
+22491528,Condition 3 (Inverted Context),Combining process indicators to evaluate quality of care for surgical patients with colorectal cancer: are scores consistent with short-term outcome?,maybe,maybe,no,no,0,N/A
+22154448,Condition 3 (Inverted Context),Epidural analgesia for surgical treatment of peritoneal carcinomatosis: a risky technique?,no,yes,no,no,0,N/A
+22108230,Condition 3 (Inverted Context),Is the fibronectin-aggrecan complex present in cervical disk disease?,yes,no,maybe,maybe,0,N/A
+16816043,Condition 3 (Inverted Context),Do French lay people and health professionals find it acceptable to breach confidentiality to protect a patient's wife from a sexually transmitted disease?,maybe,maybe,yes,yes,0,N/A
+26399179,Condition 3 (Inverted Context),Eyelid-parotid metastasis: do we screen for coexisting masses?,yes,no,maybe,maybe,0,N/A
+12142826,Condition 3 (Inverted Context),Pertrochanteric fractures: is there an advantage to an intramedullary nail?,no,yes,no,no,0,N/A
+17914515,Condition 3 (Inverted Context),"Suturing of the nasal septum after septoplasty, is it an effective alternative to nasal packing?",yes,no,no,no,1,N/A
+18948835,Condition 3 (Inverted Context),Does somatostatin confer insulinostatic effects of neuromedin u in the rat pancreas?,yes,no,no,no,1,N/A
+23621776,Condition 3 (Inverted Context),Does a history of unintended pregnancy lessen the likelihood of desire for sterilization reversal?,no,yes,no,no,0,N/A
+22324545,Condition 3 (Inverted Context),Are polymorphisms in oestrogen receptors genes associated with lipid levels in response to hormone therapy?,yes,no,Maybe,maybe,0,N/A
+19419587,Condition 3 (Inverted Context),Sternal plating for primary and secondary sternal closure; can it improve sternal stability?,yes,no,no,no,1,N/A
+18534072,Condition 3 (Inverted Context),Do general practice characteristics influence uptake of an information technology (IT) innovation in primary care?,no,yes,maybe,maybe,0,N/A
+11566686,Condition 3 (Inverted Context),In vivo visualization of pyloric mucosal hypertrophy in infants with hypertrophic pyloric stenosis: is there an etiologic role?,yes,no,no,no,1,N/A
+8017535,Condition 3 (Inverted Context),Substance use and HIV-related sexual behaviors among US high school students: are they related?,yes,no,maybe,maybe,0,N/A
+23283159,Condition 3 (Inverted Context),Is obesity a risk factor for wheezing among adolescents?,yes,no,maybe,maybe,0,N/A
+19108857,Condition 3 (Inverted Context),Cerebromediastinal tuberculosis in a child with a probable Say-Barber-Miller syndrome: a causative link?,yes,no,maybe,maybe,0,N/A
+22075911,Condition 3 (Inverted Context),Is there a differential in the dental health of new recruits to the British Armed Forces?,yes,no,yes,yes,0,N/A
+17054994,Condition 3 (Inverted Context),Does frozen section alter surgical management of multinodular thyroid disease?,no,yes,no,no,0,N/A
+11943048,Condition 3 (Inverted Context),Does receipt of hospice care in nursing homes improve the management of pain at the end of life?,yes,no,no,no,1,N/A
+17276182,Condition 3 (Inverted Context),Stretch-sensitive KCNQ1 mutation A link between genetic and environmental factors in the pathogenesis of atrial fibrillation?,yes,no,maybe,maybe,0,N/A
+17259061,Condition 3 (Inverted Context),Cigarettes and cinema: does parental restriction of R-rated movie viewing reduce adolescent smoking susceptibility?,yes,no,no,no,1,N/A
+26485091,Condition 3 (Inverted Context),Does the use of atypical antipsychotics as adjunctive therapy in depression result in cost savings?,no,yes,no,no,0,N/A
+15787677,Condition 3 (Inverted Context),Does aerobic fitness influence microvascular function in healthy adults at risk of developing Type 2 diabetes?,maybe,maybe,maybe,maybe,1,N/A
+21756515,Condition 3 (Inverted Context),Does solid culture for tuberculosis influence clinical decision making in India?,maybe,maybe,no,no,0,N/A
+18719011,Condition 3 (Inverted Context),Do overweight children necessarily make overweight adults?,no,yes,maybe,maybe,0,N/A
+15381614,Condition 3 (Inverted Context),Cutaneous melanoma in a multiethnic population: is this a different disease?,maybe,maybe,no,no,0,N/A
+14992556,Condition 3 (Inverted Context),Artefacts in 24-h pharyngeal and oesophageal pH monitoring: is simplification of pH data analysis feasible?,maybe,maybe,no,no,0,N/A
+25394614,Condition 3 (Inverted Context),Does timing of initial surfactant treatment make a difference in rates of chronic lung disease or mortality in premature infants?,maybe,maybe,no,no,0,N/A
+11888773,Condition 3 (Inverted Context),Stage I non-small cell lung carcinoma: really an early stage?,no,yes,maybe,maybe,0,N/A
+18568239,Condition 3 (Inverted Context),Is the ability to perform transurethral resection of the prostate influenced by the surgeon's previous experience?,yes,no,no,no,1,N/A
+23348330,Condition 3 (Inverted Context),Nasal fractures:  is closed reduction satisfying?,yes,no,maybe,maybe,0,N/A
+23228527,Condition 3 (Inverted Context),Does music influence stress in mechanically ventilated patients?,no,yes,no,no,0,N/A
+19401574,Condition 3 (Inverted Context),Gadofosveset-enhanced MR angiography of carotid arteries: does steady-state imaging improve accuracy of first-pass imaging?,yes,no,no,no,1,N/A
+26298839,Condition 3 (Inverted Context),Is Acupuncture Efficacious for Treating Phonotraumatic Vocal Pathologies?,yes,no,maybe,maybe,0,N/A
+23899611,Condition 3 (Inverted Context),Attenuation of ischemia/reperfusion-induced ovarian damage in rats: does edaravone offer protection?,yes,no,yes,yes,0,N/A
+23791827,Condition 3 (Inverted Context),Inpatient versus outpatient management of neutropenic fever in gynecologic oncology patients: is risk stratification useful?,yes,no,no,no,1,N/A
+16392897,Condition 3 (Inverted Context),BCRABL transcript detection by quantitative real-time PCR : are correlated results possible from homebrew assays?,maybe,maybe,yes,yes,0,N/A
+15475728,Condition 3 (Inverted Context),Alcohol consumption and acute myocardial infarction: a benefit of alcohol consumed with meals?,yes,no,no,no,1,N/A
+24481006,Condition 3 (Inverted Context),Should cavitation in proximal surfaces be reported in cone beam computed tomography examination?,yes,no,no,no,1,N/A
+25406780,Condition 3 (Inverted Context),Does skin care frequency affect the severity of incontinence-associated dermatitis in critically ill patients?,yes,no,no,no,1,N/A
+11438275,Condition 3 (Inverted Context),Does patient position during liver surgery influence the risk of venous air embolism?,no,yes,no,no,0,N/A
+14976655,Condition 3 (Inverted Context),Delayed peripheral facial palsy in the stapes surgery: can it be prevented?,yes,no,maybe,maybe,0,N/A
+19299238,Condition 3 (Inverted Context),Aromatase inhibitor-related musculoskeletal symptoms: is preventing osteoporosis the key to eliminating these symptoms?,yes,no,maybe,maybe,0,N/A
+19145527,Condition 3 (Inverted Context),Do emergency medical services professionals think they should participate in disease prevention?,maybe,maybe,yes,yes,0,N/A
+21402341,Condition 3 (Inverted Context),Assessment of carotid artery stenosis before coronary artery bypass surgery. Is it always necessary?,no,yes,maybe,maybe,0,N/A
+27581329,Condition 3 (Inverted Context),Estimation of basal metabolic rate in Chinese: are the current prediction equations applicable?,yes,no,no,no,1,N/A
+12153648,Condition 3 (Inverted Context),Does birth center care during a woman's first pregnancy have any impact on her future reproduction?,no,yes,no,no,0,N/A
+27394685,Condition 3 (Inverted Context),Bony defects in chronic anterior posttraumatic dislocation of the shoulder: Is there a correlation between humeral and glenoidal lesions?,no,yes,no,no,0,N/A
+15112004,Condition 3 (Inverted Context),Are WHO/UNAIDS/UNICEF-recommended replacement milks for infants of HIV-infected mothers appropriate in the South African context?,no,yes,no,no,0,N/A
+9347843,Condition 3 (Inverted Context),"Laparoscopic-assisted ileocolic resections in patients with Crohn's disease: are abscesses, phlegmons, or recurrent disease contraindications?",no,yes,no,no,0,N/A
+26044262,Condition 3 (Inverted Context),Are income-related differences in active travel associated with physical environmental characteristics?,no,yes,no,no,0,N/A
+16418930,Condition 3 (Inverted Context),Landolt C and snellen e acuity: differences in strabismus amblyopia?,no,yes,no,no,0,N/A
+22849512,Condition 3 (Inverted Context),Are neighbourhood social capital and availability of sports facilities related to sports participation among Dutch adolescents?,maybe,maybe,maybe,maybe,1,N/A
+10757151,Condition 3 (Inverted Context),Does ischemic preconditioning require reperfusion before index ischemia?,no,yes,no,no,0,N/A
+24973051,Condition 3 (Inverted Context),Medical student education in emergency medicine: do students meet the national standards for clinical encounters of selected core conditions?,no,yes,no,no,0,N/A
+12419743,Condition 3 (Inverted Context),Is first-line single-agent mitoxantrone in the treatment of high-risk metastatic breast cancer patients as effective as combination chemotherapy?,yes,no,no,no,1,N/A
+25501465,Condition 3 (Inverted Context),Evaluation of pediatric VCUG at an academic children's hospital: is the radiographic scout image necessary?,no,yes,no,no,0,N/A
+21550158,Condition 3 (Inverted Context),Can autologous platelet-rich plasma gel enhance healing after surgical extraction of mandibular third molars?,yes,no,no,no,1,N/A
+26778755,Condition 3 (Inverted Context),Vaginal dose assessment in image-guided brachytherapy for cervical cancer: Can we really rely on dose-point evaluation?,maybe,maybe,no,no,0,N/A
+18375490,Condition 3 (Inverted Context),Are laboratories reporting serum quantitative hCG results correctly?,no,yes,no,no,0,N/A
+24160268,Condition 3 (Inverted Context),"""Would a man smell a rose then throw it away?",maybe,maybe,maybe,maybe,1,N/A
+21569408,Condition 3 (Inverted Context),Does context matter for the relationship between deprivation and all-cause mortality?,no,yes,no,no,0,N/A
+19482903,Condition 3 (Inverted Context),Treadmill testing of children who have spina bifida and are ambulatory: does peak oxygen uptake reflect maximum oxygen uptake?,yes,no,no,no,1,N/A
+26548832,Condition 3 (Inverted Context),Assessing Patient Reported Outcomes Measures via Phone Interviews Versus Patient Self-Survey in the Clinic: Are We Measuring the Same Thing?,yes,no,no,no,1,N/A
+17076091,Condition 3 (Inverted Context),Does obstructive sleep apnea affect aerobic fitness?,maybe,maybe,maybe,maybe,1,N/A
+9645785,Condition 3 (Inverted Context),Is a mandatory general surgery rotation necessary in the surgical clerkship?,no,yes,no,no,0,N/A
+25699562,Condition 3 (Inverted Context),Does the Transmissible Liability Index (TLI) assessed in late childhood predict suicidal symptoms at young adulthood?,yes,no,no,no,1,N/A
+18041059,Condition 3 (Inverted Context),Do adjuvant aromatase inhibitors increase the cardiovascular risk in postmenopausal women with early breast cancer?,yes,no,maybe,maybe,0,N/A
+11053064,Condition 3 (Inverted Context),Fatigue in primary Sjögren's syndrome: is there a link with the fibromyalgia syndrome?,no,yes,no,no,0,N/A
+24191126,Condition 3 (Inverted Context),Is CA72-4 a useful biomarker in differential diagnosis between ovarian endometrioma and epithelial ovarian cancer?,yes,no,yes,yes,0,N/A
+27643961,Condition 3 (Inverted Context),Major depression and alcohol use disorder in adolescence: Does comorbidity lead to poorer outcomes of depression?,no,yes,no,no,0,N/A
+12040336,Condition 3 (Inverted Context),Cardiogenic shock complicating acute myocardial infarction in elderly patients: does admission to a tertiary center improve survival?,no,yes,no,no,0,N/A
+20608141,Condition 3 (Inverted Context),PSA repeatedly fluctuating levels are reassuring enough to avoid biopsy?,no,yes,no,no,0,N/A
+18378554,Condition 3 (Inverted Context),Are wandering and physically nonaggressive agitation equivalent?,no,yes,no,no,0,N/A
+24318956,Condition 3 (Inverted Context),Is digoxin use for cardiovascular disease associated with risk of prostate cancer?,yes,no,no,no,1,N/A
+24666444,Condition 3 (Inverted Context),"Is there any evidence of a ""July effect"" in patients undergoing major cancer surgery?",no,yes,no,no,0,N/A
+25982163,Condition 3 (Inverted Context),Appendectomy timing: Will delayed surgery increase the complications?,no,yes,no,no,0,N/A
+10749257,Condition 3 (Inverted Context),Has the mammography quality standards act affected the mammography quality in North Carolina?,yes,no,maybe,maybe,0,N/A
+9142039,Condition 3 (Inverted Context),Does pediatric housestaff experience influence tests ordered for infants in the neonatal intensive care unit?,yes,no,no,no,1,N/A
+12690589,Condition 3 (Inverted Context),Can continuous physical training counteract aging effect on myoelectric fatigue?,yes,no,no,no,1,N/A
+15208005,Condition 3 (Inverted Context),The Omega-3 Index: a new risk factor for death from coronary heart disease?,yes,no,yes,yes,0,N/A
+18222909,Condition 3 (Inverted Context),Are pectins involved in cold acclimation and de-acclimation of winter oil-seed rape plants?,yes,no,yes,yes,0,N/A
+26708803,Condition 3 (Inverted Context),Treatment of contralateral hydrocele in neonatal testicular torsion: Is less more?,maybe,maybe,yes,yes,0,N/A
+18594195,Condition 3 (Inverted Context),Do older patients who refuse to participate in a self-management intervention in the Netherlands differ from older patients who agree to participate?,yes,no,yes,yes,0,N/A
+11970923,Condition 3 (Inverted Context),Convulsions and retinal haemorrhage: should we look further?,yes,no,no,no,1,N/A
+27405146,Condition 3 (Inverted Context),PREVALENCE OF THE STREPTOCOCUS AGALACTIAE IN THE PREGNANT WOMAN FROM THE AUTONOMIC CITY OF MELILLA: IS CULTURE A DETERMINANT FACTOR?,yes,no,maybe,maybe,0,N/A
+17276801,Condition 3 (Inverted Context),Can elevated troponin I levels predict complicated clinical course and inhospital mortality in patients with acute pulmonary embolism?,yes,no,no,no,1,N/A
+11601252,Condition 3 (Inverted Context),Is endothelin-1 an aggravating factor in the development of acute pancreatitis?,yes,no,yes,yes,0,N/A
+24947183,Condition 3 (Inverted Context),"Does delaying surgery in immature adolescent idiopathic scoliosis patients with progressive curve, lead to addition of fusion levels?",yes,no,no,no,1,N/A
+18926458,Condition 3 (Inverted Context),Are octogenarians at high risk for carotid endarterectomy?,no,yes,no,no,0,N/A
+28177278,Condition 3 (Inverted Context),Does spontaneous remission occur in polyarteritis nodosa?,yes,no,maybe,maybe,0,N/A
+23177368,Condition 3 (Inverted Context),Does immediate breast reconstruction compromise the delivery of adjuvant chemotherapy?,no,yes,no,no,0,N/A
+28196511,Condition 3 (Inverted Context),"Antiretroviral therapy related adverse effects: Can sub-Saharan Africa cope with the new ""test and treat"" policy of the World Health Organization?",no,yes,maybe,maybe,0,N/A
+28006766,Condition 3 (Inverted Context),Is Overexpression of Ki-67 a Prognostic Biomarker of Upper Tract Urinary Carcinoma?,yes,no,yes,yes,0,N/A
+27456836,Condition 3 (Inverted Context),Do Electrochemiluminescence Assays Improve Prediction of Time to Type 1 Diabetes in Autoantibody-Positive TrialNet Subjects?,yes,no,no,no,1,N/A
+24153338,Condition 3 (Inverted Context),Is aneurysm repair justified for the patients aged 80 or older after aneurysmal subarachnoid hemorrhage?,yes,no,no,no,1,N/A
+26578404,Condition 3 (Inverted Context),Patient-Controlled Therapy of Breathlessness in Palliative Care: A New Therapeutic Concept for Opioid Administration?,yes,no,maybe,maybe,0,N/A
+23870157,Condition 3 (Inverted Context),Are intraoperative precursor events associated with postoperative major adverse events?,yes,no,no,no,1,N/A
+22972546,Condition 3 (Inverted Context),Do approved doctors and medical referees in the UK agree when assessing a seafarer's fitness?,no,yes,no,no,0,N/A
+10411439,Condition 3 (Inverted Context),Lloyd-Davies position with Trendelenburg--a disaster waiting to happen?,yes,no,no,no,1,N/A
+22205377,Condition 3 (Inverted Context),Some aspects of social exclusion: do they influence suicide mortality?,yes,no,no,no,1,N/A
+24739448,Condition 3 (Inverted Context),Have antiepileptic drug prescription claims changed following the FDA suicidality warning?,no,yes,no,no,0,N/A
+17691856,Condition 3 (Inverted Context),Midwives' competence: is it affected by working in a rural location?,maybe,maybe,maybe,maybe,1,N/A
+21689015,Condition 3 (Inverted Context),Can dogs prime autistic children for therapy?,yes,no,maybe,maybe,0,N/A
+11034241,Condition 3 (Inverted Context),Is routine intraoperative frozen-section examination of sentinel lymph nodes in breast cancer worthwhile?,maybe,maybe,no,no,0,N/A
+23386371,Condition 3 (Inverted Context),CPAP therapy in patients with idiopathic pulmonary fibrosis and obstructive sleep apnea: does it offer a better quality of life and sleep?,maybe,maybe,maybe,maybe,1,N/A
+27928673,Condition 3 (Inverted Context),Do ART patients face higher C-section rates during their stage of delivery?,yes,no,maybe,maybe,0,N/A
+9003088,Condition 3 (Inverted Context),Immunohistochemical assessment of steroid hormone receptors in tissues of the anal canal. Implications for anal incontinence?,yes,no,maybe,maybe,0,N/A
+20674150,Condition 3 (Inverted Context),Validation of the 2009 TNM version in a large multi-institutional cohort of patients treated for renal cell carcinoma: are further improvements needed?,yes,no,no,no,1,N/A
+18182265,Condition 3 (Inverted Context),Body diffusion-weighted MR imaging of uterine endometrial cancer: is it helpful in the detection of cancer in nonenhanced MR imaging?,yes,no,maybe,maybe,0,N/A
+27050505,Condition 3 (Inverted Context),Does angiotensin-converting enzyme-1 (ACE-1) gene polymorphism lead to chronic kidney disease among hypertensive patients?,yes,no,no,no,1,N/A
+18472368,Condition 3 (Inverted Context),Does treatment duration affect outcome after radiotherapy for prostate cancer?,yes,no,no,no,1,N/A
+19712912,Condition 3 (Inverted Context),Has the 80-hour workweek improved surgical resident education in New England?,no,yes,no,no,0,N/A
+22042121,Condition 3 (Inverted Context),Perioperative care in an animal model for training in abdominal surgery: is it necessary a preoperative fasting?,no,yes,maybe,maybe,0,N/A
+21080127,Condition 3 (Inverted Context),Can implant retention be recommended for treatment of infected TKA?,maybe,maybe,no,no,0,N/A
+26085176,Condition 3 (Inverted Context),MR Diagnosis of Bone Metastases at 1.5 T and 3 T: Can STIR Imaging Be Omitted?,yes,no,no,no,1,N/A
+25371231,Condition 3 (Inverted Context),Is vitamin D insufficiency or deficiency related to the development of osteochondritis dissecans?,maybe,maybe,maybe,maybe,1,N/A
+17551944,Condition 3 (Inverted Context),Doppler examination of uteroplacental circulation in early pregnancy: can it predict adverse outcome?,yes,no,no,no,1,N/A
+20338971,Condition 3 (Inverted Context),Does peritoneal dialysis affect halitosis in patients with end-stage renal disease?,yes,no,no,no,1,N/A
+24669960,Condition 3 (Inverted Context),Does the sex of acute stroke patients influence the effectiveness of rt-PA?,no,yes,no,no,0,N/A
+9140335,Condition 3 (Inverted Context),Does fluoridation reduce the use of dental services among adults?,maybe,maybe,no,no,0,N/A
+8199520,Condition 3 (Inverted Context),Are physicians meeting the needs of family caregivers of the frail elderly?,no,yes,maybe,maybe,0,N/A
+11978239,Condition 3 (Inverted Context),Do primary care physicians underprescribe antibiotics for peptic ulcer disease?,yes,no,no,no,1,N/A
+17940352,Condition 3 (Inverted Context),Does HER2 immunoreactivity provide prognostic information in locally advanced urothelial carcinoma patients receiving adjuvant M-VEC chemotherapy?,maybe,maybe,maybe,maybe,1,N/A
+23517744,Condition 3 (Inverted Context),Is solitary kidney really more resistant to ischemia?,yes,no,no,no,1,N/A
+26419377,Condition 3 (Inverted Context),Are pelvic anatomical structures in danger during arthroscopic acetabular labral repair?,yes,no,yes,yes,0,N/A
+19351635,Condition 3 (Inverted Context),Do older patients receive adequate stroke care?,maybe,maybe,maybe,maybe,1,N/A
+15141797,Condition 3 (Inverted Context),Can we rely on arterial line sampling in performing activated plasma thromboplastin time after cardiac surgery?,no,yes,No,no,0,N/A
+26536001,Condition 3 (Inverted Context),Is There an Additional Value of Using Somatostatin Receptor Subtype 2a Immunohistochemistry Compared to Somatostatin Receptor Scintigraphy Uptake in Predicting Gastroenteropancreatic Neuroendocrine Tumor Response?,no,yes,no,no,0,N/A
+23972333,Condition 3 (Inverted Context),Has the prevalence of health care services use increased over the last decade (2001-2009) in elderly people?,yes,no,maybe,maybe,0,N/A
+27642458,Condition 3 (Inverted Context),Did the call for boycott by the Catholic bishops affect the polio vaccination coverage in Kenya in 2015?,no,yes,maybe,maybe,0,N/A
+8200238,Condition 3 (Inverted Context),Must early postoperative oral intake be limited to laparoscopy?,no,yes,no,no,0,N/A
+24622801,Condition 3 (Inverted Context),Does implant coating with antibacterial-loaded hydrogel reduce bacterial colonization and biofilm formation in vitro?,yes,no,maybe,maybe,0,N/A
+20971618,Condition 3 (Inverted Context),"Are lifetime prevalence of impetigo, molluscum and herpes infection really increased in children having atopic dermatitis?",maybe,maybe,no,no,0,N/A
+27884344,Condition 3 (Inverted Context),Do resident's leadership skills relate to ratings of technical skill?,yes,no,maybe,maybe,0,N/A
+22348433,Condition 3 (Inverted Context),Does partial expander deflation exacerbate the adverse effects of radiotherapy in two-stage breast reconstruction?,yes,no,yes,yes,0,N/A
+16097998,Condition 3 (Inverted Context),Is coeliac disease screening in risk groups justified?,yes,no,no,no,1,N/A
+27040842,Condition 3 (Inverted Context),Does septoplasty change the dimensions of compensatory hypertrophy of the middle turbinate?,no,yes,no,no,0,N/A
+25819796,Condition 3 (Inverted Context),Literacy after cerebral hemispherectomy: Can the isolated right hemisphere read?,yes,no,maybe,maybe,0,N/A
+19643525,Condition 3 (Inverted Context),Can vaginal pH be measured from the wet mount slide?,no,yes,no,no,0,N/A
+20337874,Condition 3 (Inverted Context),Delayed diagnosis of anorectal malformations: are current guidelines sufficient?,no,yes,no,no,0,N/A
+27146470,Condition 3 (Inverted Context),Are tuberculosis patients adherent to prescribed treatments in China?,maybe,maybe,no,no,0,N/A
+24487044,Condition 3 (Inverted Context),Pharmacologic regimens for knee osteoarthritis prevention: can they be cost-effective?,yes,no,no,no,1,N/A
+19520213,Condition 3 (Inverted Context),Are UK radiologists satisfied with the training and support received in suspected child abuse?,no,yes,maybe,maybe,0,N/A
+18708308,Condition 3 (Inverted Context),Can surgeon familiarization with current evidence lead to a change in practice?,no,yes,no,no,0,N/A
+25156467,Condition 3 (Inverted Context),Should early extubation be the goal for children after congenital cardiac surgery?,yes,no,yes,yes,0,N/A
+12094116,Condition 3 (Inverted Context),Is muscle power related to running speed with changes of direction?,yes,no,maybe,maybe,0,N/A
+10877371,Condition 3 (Inverted Context),Does head positioning influence anterior chamber depth in pseudoexfoliation syndrome?,yes,no,no,no,1,N/A
+11570976,Condition 3 (Inverted Context),Is it Crohn's disease?,maybe,maybe,maybe,maybe,1,N/A
+2503176,Condition 3 (Inverted Context),Inhibin: a new circulating marker of hydatidiform mole?,yes,no,no,no,1,N/A
+15879722,Condition 3 (Inverted Context),Is cytokeratin immunoreactivity useful in the diagnosis of short-segment Barrett's oesophagus in Korea?,yes,no,maybe,maybe,0,N/A
+22504515,Condition 3 (Inverted Context),Endovenous laser ablation in the treatment of small saphenous varicose veins: does site of access influence early outcomes?,no,yes,no,no,0,N/A
+23506394,Condition 3 (Inverted Context),"Malnutrition, a new inducer for arterial calcification in hemodialysis patients?",yes,no,maybe,maybe,0,N/A
+12920330,Condition 3 (Inverted Context),Do somatic complaints predict subsequent symptoms of depression?,maybe,maybe,maybe,maybe,1,N/A
+12595848,Condition 3 (Inverted Context),Is specialty care associated with improved survival of patients with congestive heart failure?,yes,no,no,no,1,N/A
+18359123,Condition 3 (Inverted Context),Is it better to be big?,no,yes,no,no,0,N/A
+8521557,Condition 3 (Inverted Context),The insertion allele of the ACE gene I/D polymorphism. A candidate gene for insulin resistance?,no,yes,no,no,0,N/A
+22668712,Condition 3 (Inverted Context),Internal derangement of the temporomandibular joint: is there still a place for ultrasound?,no,yes,no,no,0,N/A
+22768311,Condition 3 (Inverted Context),Is human cytomegalovirus infection associated with hypertension?,no,yes,maybe,maybe,0,N/A
+25499207,Condition 3 (Inverted Context),Is neck pain associated with worse health-related quality of life 6 months later?,yes,no,yes,yes,0,N/A
+23735520,Condition 3 (Inverted Context),Can mental imagery functional magnetic resonance imaging predict recovery in patients with disorders of consciousness?,yes,no,maybe,maybe,0,N/A
+22813804,Condition 3 (Inverted Context),Does obesity impact the pattern and outcome of trauma in children?,no,yes,no,no,0,N/A
+16968876,Condition 3 (Inverted Context),Is a patient's self-reported health-related quality of life a prognostic factor for survival in non-small-cell lung cancer patients?,maybe,maybe,no,no,0,N/A
+16809243,Condition 3 (Inverted Context),Is fetal gender associated with emergency department visits for asthma during pregnancy?,no,yes,no,no,0,N/A
+10456814,Condition 3 (Inverted Context),Does desflurane alter left ventricular function when used to control surgical stimulation during aortic surgery?,no,yes,no,no,0,N/A
+16772913,Condition 3 (Inverted Context),A comparison of 500 prefilled textured saline breast implants versus 500 standard textured saline breast implants: is there a difference in deflation rates?,yes,no,no,no,1,N/A
+24995509,Condition 3 (Inverted Context),HIF1A as a major vascular endothelial growth factor regulator: do its polymorphisms have an association with age-related macular degeneration?,maybe,maybe,No,no,0,N/A
+26606599,Condition 3 (Inverted Context),Do Surrogates of Injury Severity Influence the Occurrence of Heterotopic Ossification in Fractures of the Acetabulum?,maybe,maybe,maybe,maybe,1,N/A
+18832500,Condition 3 (Inverted Context),Systematic use of patient-rated depression severity monitoring: is it helpful and feasible in clinical psychiatry?,yes,no,maybe,maybe,0,N/A
+21593045,Condition 3 (Inverted Context),Do women with ovaries of polycystic morphology without any other features of PCOS benefit from short-term metformin co-treatment during IVF?,no,yes,no,no,0,N/A
+25079920,Condition 4 (Distractor Context),Do parents recall and understand children's weight status information after BMI screening?,maybe,maybe,Maybe,maybe,1,N/A
+17355582,Condition 4 (Distractor Context),Does ambulatory process of care predict health-related quality of life outcomes for patients with chronic disease?,yes,maybe,maybe,maybe,1,N/A
+15502995,Condition 4 (Distractor Context),Does the early adopter of drugs exist?,no,maybe,maybe,maybe,1,N/A
+25810292,Condition 4 (Distractor Context),Is minimally invasive mitral valve repair with artificial chords reproducible and applicable in routine surgery?,yes,maybe,Maybe,maybe,1,N/A
+17342562,Condition 4 (Distractor Context),The clinical significance of bile duct sludge: is it different from bile duct stones?,no,maybe,maybe,maybe,1,N/A
+20073599,Condition 4 (Distractor Context),Do liquid-based preparations of urinary cytology perform differently than classically prepared cases?,yes,maybe,maybe,maybe,1,N/A
+27757987,Condition 4 (Distractor Context),Does the treatment of amblyopia normalise subfoveal choroidal thickness in amblyopic children?,no,maybe,Maybe,maybe,1,N/A
+18568290,Condition 4 (Distractor Context),Is there a role for endothelin-1 in the hemodynamic changes during hemodialysis?,maybe,maybe,maybe,maybe,1,N/A
+18251357,Condition 4 (Distractor Context),Does histologic chorioamnionitis correspond to clinical chorioamnionitis?,yes,maybe,maybe,maybe,1,N/A
+22188074,Condition 4 (Distractor Context),Do instrumental activities of daily living predict dementia at 1- and 2-year follow-up?,yes,maybe,Maybe,maybe,1,N/A
+25752912,Condition 4 (Distractor Context),Is the probability of prenatal diagnosis or termination of pregnancy different for fetuses with congenital anomalies conceived following assisted reproductive techniques?,no,maybe,Maybe,maybe,1,N/A
+24748473,Condition 4 (Distractor Context),Are there risk factors that increase the rate of staple line leakage in patients undergoing primary sleeve gastrectomy for morbid obesity?,yes,maybe,maybe,maybe,1,N/A
+12765819,Condition 4 (Distractor Context),Spinal subdural hematoma: a sequela of a ruptured intracranial aneurysm?,yes,maybe,maybe,maybe,1,N/A
+22449464,Condition 4 (Distractor Context),Do general practice selection scores predict success at MRCGP?,yes,maybe,maybe,maybe,1,N/A
+14627582,Condition 4 (Distractor Context),Double reading of barium enemas: is it necessary?,no,maybe,maybe,maybe,1,N/A
+12913347,Condition 4 (Distractor Context),Do microbiological factors account for poor pregnancy outcome among unmarried pregnant women in Poland?,yes,maybe,maybe,maybe,1,N/A
+16216859,Condition 4 (Distractor Context),Does a well developed collateral circulation predispose to restenosis after percutaneous coronary intervention?,no,maybe,maybe,maybe,1,N/A
+23361217,Condition 4 (Distractor Context),Does the type of tibial component affect mechanical alignment in unicompartmental knee replacement?,yes,maybe,maybe,maybe,1,N/A
+12805495,Condition 4 (Distractor Context),Can patients be anticoagulated after intracerebral hemorrhage?,maybe,maybe,maybe,maybe,1,N/A
+8910148,Condition 4 (Distractor Context),Transesophageal echocardiographic assessment of left ventricular function in brain-dead patients: are marginally acceptable hearts suitable for transplantation?,yes,maybe,maybe,maybe,1,N/A
+7547656,Condition 4 (Distractor Context),Does continuous intravenous infusion of low-concentration epinephrine impair uterine blood flow in pregnant ewes?,no,maybe,maybe,maybe,1,N/A
+16155169,Condition 4 (Distractor Context),Percutaneous ethanol injection for benign cystic thyroid nodules: is aspiration of ethanol-mixed fluid advantageous?,no,maybe,Maybe,maybe,1,N/A
+17598882,Condition 4 (Distractor Context),Is breast cancer prognosis inherited?,yes,maybe,Maybe,maybe,1,N/A
+21346501,Condition 4 (Distractor Context),Can students' scores on preclerkship clinical performance examinations predict that they will fail a senior clinical performance examination?,yes,maybe,maybe,maybe,1,N/A
+25691513,Condition 4 (Distractor Context),Do communication disorders extend to musical messages?,yes,maybe,maybe,maybe,1,N/A
+24958650,Condition 4 (Distractor Context),May mean platelet volume levels be a predictor in the diagnosis of pelvic inflammatory disease?,yes,maybe,maybe,maybe,1,N/A
+16538201,Condition 4 (Distractor Context),Does use of hydrophilic guidewires significantly improve technical success rates of peripheral PTA?,maybe,maybe,maybe,maybe,1,N/A
+20813740,Condition 4 (Distractor Context),Does β-catenin have a role in pathogenesis of sebaceous cell carcinoma of the eyelid?,yes,maybe,maybe,maybe,1,N/A
+14599616,Condition 4 (Distractor Context),Can a practicing surgeon detect early lymphedema reliably?,maybe,maybe,Maybe,maybe,1,N/A
+18274917,Condition 4 (Distractor Context),Prognosis of low-tone sudden deafness - does it inevitably progress to Meniere's disease?,no,maybe,maybe,maybe,1,N/A
+22491528,Condition 4 (Distractor Context),Combining process indicators to evaluate quality of care for surgical patients with colorectal cancer: are scores consistent with short-term outcome?,maybe,maybe,maybe,maybe,1,N/A
+22154448,Condition 4 (Distractor Context),Epidural analgesia for surgical treatment of peritoneal carcinomatosis: a risky technique?,no,maybe,maybe,maybe,1,N/A
+22108230,Condition 4 (Distractor Context),Is the fibronectin-aggrecan complex present in cervical disk disease?,yes,maybe,maybe,maybe,1,N/A
+16816043,Condition 4 (Distractor Context),Do French lay people and health professionals find it acceptable to breach confidentiality to protect a patient's wife from a sexually transmitted disease?,maybe,maybe,maybe,maybe,1,N/A
+26399179,Condition 4 (Distractor Context),Eyelid-parotid metastasis: do we screen for coexisting masses?,yes,maybe,maybe,maybe,1,N/A
+12142826,Condition 4 (Distractor Context),Pertrochanteric fractures: is there an advantage to an intramedullary nail?,no,maybe,maybe,maybe,1,N/A
+17914515,Condition 4 (Distractor Context),"Suturing of the nasal septum after septoplasty, is it an effective alternative to nasal packing?",yes,maybe,maybe,maybe,1,N/A
+18948835,Condition 4 (Distractor Context),Does somatostatin confer insulinostatic effects of neuromedin u in the rat pancreas?,yes,maybe,maybe,maybe,1,N/A
+23621776,Condition 4 (Distractor Context),Does a history of unintended pregnancy lessen the likelihood of desire for sterilization reversal?,no,maybe,Maybe,maybe,1,N/A
+22324545,Condition 4 (Distractor Context),Are polymorphisms in oestrogen receptors genes associated with lipid levels in response to hormone therapy?,yes,maybe,maybe,maybe,1,N/A
+19419587,Condition 4 (Distractor Context),Sternal plating for primary and secondary sternal closure; can it improve sternal stability?,yes,maybe,maybe,maybe,1,N/A
+18534072,Condition 4 (Distractor Context),Do general practice characteristics influence uptake of an information technology (IT) innovation in primary care?,no,maybe,maybe,maybe,1,N/A
+11566686,Condition 4 (Distractor Context),In vivo visualization of pyloric mucosal hypertrophy in infants with hypertrophic pyloric stenosis: is there an etiologic role?,yes,maybe,maybe,maybe,1,N/A
+8017535,Condition 4 (Distractor Context),Substance use and HIV-related sexual behaviors among US high school students: are they related?,yes,maybe,maybe,maybe,1,N/A
+23283159,Condition 4 (Distractor Context),Is obesity a risk factor for wheezing among adolescents?,yes,maybe,Maybe,maybe,1,N/A
+19108857,Condition 4 (Distractor Context),Cerebromediastinal tuberculosis in a child with a probable Say-Barber-Miller syndrome: a causative link?,yes,maybe,maybe,maybe,1,N/A
+22075911,Condition 4 (Distractor Context),Is there a differential in the dental health of new recruits to the British Armed Forces?,yes,maybe,maybe,maybe,1,N/A
+17054994,Condition 4 (Distractor Context),Does frozen section alter surgical management of multinodular thyroid disease?,no,maybe,maybe,maybe,1,N/A
+11943048,Condition 4 (Distractor Context),Does receipt of hospice care in nursing homes improve the management of pain at the end of life?,yes,maybe,maybe,maybe,1,N/A
+17276182,Condition 4 (Distractor Context),Stretch-sensitive KCNQ1 mutation A link between genetic and environmental factors in the pathogenesis of atrial fibrillation?,yes,maybe,maybe,maybe,1,N/A
+17259061,Condition 4 (Distractor Context),Cigarettes and cinema: does parental restriction of R-rated movie viewing reduce adolescent smoking susceptibility?,yes,maybe,maybe,maybe,1,N/A
+26485091,Condition 4 (Distractor Context),Does the use of atypical antipsychotics as adjunctive therapy in depression result in cost savings?,no,maybe,maybe,maybe,1,N/A
+15787677,Condition 4 (Distractor Context),Does aerobic fitness influence microvascular function in healthy adults at risk of developing Type 2 diabetes?,maybe,maybe,Maybe,maybe,1,N/A
+21756515,Condition 4 (Distractor Context),Does solid culture for tuberculosis influence clinical decision making in India?,maybe,maybe,maybe,maybe,1,N/A
+18719011,Condition 4 (Distractor Context),Do overweight children necessarily make overweight adults?,no,maybe,Maybe,maybe,1,N/A
+15381614,Condition 4 (Distractor Context),Cutaneous melanoma in a multiethnic population: is this a different disease?,maybe,maybe,maybe,maybe,1,N/A
+14992556,Condition 4 (Distractor Context),Artefacts in 24-h pharyngeal and oesophageal pH monitoring: is simplification of pH data analysis feasible?,maybe,maybe,maybe,maybe,1,N/A
+25394614,Condition 4 (Distractor Context),Does timing of initial surfactant treatment make a difference in rates of chronic lung disease or mortality in premature infants?,maybe,maybe,Maybe,maybe,1,N/A
+11888773,Condition 4 (Distractor Context),Stage I non-small cell lung carcinoma: really an early stage?,no,maybe,maybe,maybe,1,N/A
+18568239,Condition 4 (Distractor Context),Is the ability to perform transurethral resection of the prostate influenced by the surgeon's previous experience?,yes,maybe,maybe,maybe,1,N/A
+23348330,Condition 4 (Distractor Context),Nasal fractures:  is closed reduction satisfying?,yes,maybe,maybe,maybe,1,N/A
+23228527,Condition 4 (Distractor Context),Does music influence stress in mechanically ventilated patients?,no,maybe,Maybe,maybe,1,N/A
+19401574,Condition 4 (Distractor Context),Gadofosveset-enhanced MR angiography of carotid arteries: does steady-state imaging improve accuracy of first-pass imaging?,yes,maybe,maybe,maybe,1,N/A
+26298839,Condition 4 (Distractor Context),Is Acupuncture Efficacious for Treating Phonotraumatic Vocal Pathologies?,yes,maybe,maybe,maybe,1,N/A
+23899611,Condition 4 (Distractor Context),Attenuation of ischemia/reperfusion-induced ovarian damage in rats: does edaravone offer protection?,yes,maybe,Maybe,maybe,1,N/A
+23791827,Condition 4 (Distractor Context),Inpatient versus outpatient management of neutropenic fever in gynecologic oncology patients: is risk stratification useful?,yes,maybe,maybe,maybe,1,N/A
+16392897,Condition 4 (Distractor Context),BCRABL transcript detection by quantitative real-time PCR : are correlated results possible from homebrew assays?,maybe,maybe,maybe,maybe,1,N/A
+15475728,Condition 4 (Distractor Context),Alcohol consumption and acute myocardial infarction: a benefit of alcohol consumed with meals?,yes,maybe,maybe,maybe,1,N/A
+24481006,Condition 4 (Distractor Context),Should cavitation in proximal surfaces be reported in cone beam computed tomography examination?,yes,maybe,maybe,maybe,1,N/A
+25406780,Condition 4 (Distractor Context),Does skin care frequency affect the severity of incontinence-associated dermatitis in critically ill patients?,yes,maybe,Maybe,maybe,1,N/A
+11438275,Condition 4 (Distractor Context),Does patient position during liver surgery influence the risk of venous air embolism?,no,maybe,maybe,maybe,1,N/A
+14976655,Condition 4 (Distractor Context),Delayed peripheral facial palsy in the stapes surgery: can it be prevented?,yes,maybe,maybe,maybe,1,N/A
+19299238,Condition 4 (Distractor Context),Aromatase inhibitor-related musculoskeletal symptoms: is preventing osteoporosis the key to eliminating these symptoms?,yes,maybe,maybe,maybe,1,N/A
+19145527,Condition 4 (Distractor Context),Do emergency medical services professionals think they should participate in disease prevention?,maybe,maybe,maybe,maybe,1,N/A
+21402341,Condition 4 (Distractor Context),Assessment of carotid artery stenosis before coronary artery bypass surgery. Is it always necessary?,no,maybe,maybe,maybe,1,N/A
+27581329,Condition 4 (Distractor Context),Estimation of basal metabolic rate in Chinese: are the current prediction equations applicable?,yes,maybe,maybe,maybe,1,N/A
+12153648,Condition 4 (Distractor Context),Does birth center care during a woman's first pregnancy have any impact on her future reproduction?,no,maybe,maybe,maybe,1,N/A
+27394685,Condition 4 (Distractor Context),Bony defects in chronic anterior posttraumatic dislocation of the shoulder: Is there a correlation between humeral and glenoidal lesions?,no,maybe,maybe,maybe,1,N/A
+15112004,Condition 4 (Distractor Context),Are WHO/UNAIDS/UNICEF-recommended replacement milks for infants of HIV-infected mothers appropriate in the South African context?,no,maybe,maybe,maybe,1,N/A
+9347843,Condition 4 (Distractor Context),"Laparoscopic-assisted ileocolic resections in patients with Crohn's disease: are abscesses, phlegmons, or recurrent disease contraindications?",no,maybe,maybe,maybe,1,N/A
+26044262,Condition 4 (Distractor Context),Are income-related differences in active travel associated with physical environmental characteristics?,no,maybe,maybe,maybe,1,N/A
+16418930,Condition 4 (Distractor Context),Landolt C and snellen e acuity: differences in strabismus amblyopia?,no,maybe,maybe,maybe,1,N/A
+22849512,Condition 4 (Distractor Context),Are neighbourhood social capital and availability of sports facilities related to sports participation among Dutch adolescents?,maybe,maybe,Maybe,maybe,1,N/A
+10757151,Condition 4 (Distractor Context),Does ischemic preconditioning require reperfusion before index ischemia?,no,maybe,maybe,maybe,1,N/A
+24973051,Condition 4 (Distractor Context),Medical student education in emergency medicine: do students meet the national standards for clinical encounters of selected core conditions?,no,maybe,maybe,maybe,1,N/A
+12419743,Condition 4 (Distractor Context),Is first-line single-agent mitoxantrone in the treatment of high-risk metastatic breast cancer patients as effective as combination chemotherapy?,yes,maybe,Maybe,maybe,1,N/A
+25501465,Condition 4 (Distractor Context),Evaluation of pediatric VCUG at an academic children's hospital: is the radiographic scout image necessary?,no,maybe,maybe,maybe,1,N/A
+21550158,Condition 4 (Distractor Context),Can autologous platelet-rich plasma gel enhance healing after surgical extraction of mandibular third molars?,yes,maybe,Maybe,maybe,1,N/A
+26778755,Condition 4 (Distractor Context),Vaginal dose assessment in image-guided brachytherapy for cervical cancer: Can we really rely on dose-point evaluation?,maybe,maybe,maybe,maybe,1,N/A
+18375490,Condition 4 (Distractor Context),Are laboratories reporting serum quantitative hCG results correctly?,no,maybe,Maybe,maybe,1,N/A
+24160268,Condition 4 (Distractor Context),"""Would a man smell a rose then throw it away?",maybe,maybe,maybe,maybe,1,N/A
+21569408,Condition 4 (Distractor Context),Does context matter for the relationship between deprivation and all-cause mortality?,no,maybe,maybe,maybe,1,N/A
+19482903,Condition 4 (Distractor Context),Treadmill testing of children who have spina bifida and are ambulatory: does peak oxygen uptake reflect maximum oxygen uptake?,yes,maybe,Maybe,maybe,1,N/A
+26548832,Condition 4 (Distractor Context),Assessing Patient Reported Outcomes Measures via Phone Interviews Versus Patient Self-Survey in the Clinic: Are We Measuring the Same Thing?,yes,maybe,maybe,maybe,1,N/A
+17076091,Condition 4 (Distractor Context),Does obstructive sleep apnea affect aerobic fitness?,maybe,maybe,Maybe,maybe,1,N/A
+9645785,Condition 4 (Distractor Context),Is a mandatory general surgery rotation necessary in the surgical clerkship?,no,maybe,maybe,maybe,1,N/A
+25699562,Condition 4 (Distractor Context),Does the Transmissible Liability Index (TLI) assessed in late childhood predict suicidal symptoms at young adulthood?,yes,maybe,Maybe,maybe,1,N/A
+18041059,Condition 4 (Distractor Context),Do adjuvant aromatase inhibitors increase the cardiovascular risk in postmenopausal women with early breast cancer?,yes,maybe,Maybe,maybe,1,N/A
+11053064,Condition 4 (Distractor Context),Fatigue in primary Sjögren's syndrome: is there a link with the fibromyalgia syndrome?,no,maybe,maybe,maybe,1,N/A
+24191126,Condition 4 (Distractor Context),Is CA72-4 a useful biomarker in differential diagnosis between ovarian endometrioma and epithelial ovarian cancer?,yes,maybe,Maybe,maybe,1,N/A
+27643961,Condition 4 (Distractor Context),Major depression and alcohol use disorder in adolescence: Does comorbidity lead to poorer outcomes of depression?,no,maybe,maybe,maybe,1,N/A
+12040336,Condition 4 (Distractor Context),Cardiogenic shock complicating acute myocardial infarction in elderly patients: does admission to a tertiary center improve survival?,no,maybe,maybe,maybe,1,N/A
+20608141,Condition 4 (Distractor Context),PSA repeatedly fluctuating levels are reassuring enough to avoid biopsy?,no,maybe,maybe,maybe,1,N/A
+18378554,Condition 4 (Distractor Context),Are wandering and physically nonaggressive agitation equivalent?,no,maybe,maybe,maybe,1,N/A
+24318956,Condition 4 (Distractor Context),Is digoxin use for cardiovascular disease associated with risk of prostate cancer?,yes,maybe,maybe,maybe,1,N/A
+24666444,Condition 4 (Distractor Context),"Is there any evidence of a ""July effect"" in patients undergoing major cancer surgery?",no,maybe,maybe,maybe,1,N/A
+25982163,Condition 4 (Distractor Context),Appendectomy timing: Will delayed surgery increase the complications?,no,maybe,maybe,maybe,1,N/A
+10749257,Condition 4 (Distractor Context),Has the mammography quality standards act affected the mammography quality in North Carolina?,yes,maybe,maybe,maybe,1,N/A
+9142039,Condition 4 (Distractor Context),Does pediatric housestaff experience influence tests ordered for infants in the neonatal intensive care unit?,yes,maybe,maybe,maybe,1,N/A
+12690589,Condition 4 (Distractor Context),Can continuous physical training counteract aging effect on myoelectric fatigue?,yes,maybe,maybe,maybe,1,N/A
+15208005,Condition 4 (Distractor Context),The Omega-3 Index: a new risk factor for death from coronary heart disease?,yes,maybe,maybe,maybe,1,N/A
+18222909,Condition 4 (Distractor Context),Are pectins involved in cold acclimation and de-acclimation of winter oil-seed rape plants?,yes,maybe,maybe,maybe,1,N/A
+26708803,Condition 4 (Distractor Context),Treatment of contralateral hydrocele in neonatal testicular torsion: Is less more?,maybe,maybe,Maybe,maybe,1,N/A
+18594195,Condition 4 (Distractor Context),Do older patients who refuse to participate in a self-management intervention in the Netherlands differ from older patients who agree to participate?,yes,maybe,Maybe,maybe,1,N/A
+11970923,Condition 4 (Distractor Context),Convulsions and retinal haemorrhage: should we look further?,yes,maybe,maybe,maybe,1,N/A
+27405146,Condition 4 (Distractor Context),PREVALENCE OF THE STREPTOCOCUS AGALACTIAE IN THE PREGNANT WOMAN FROM THE AUTONOMIC CITY OF MELILLA: IS CULTURE A DETERMINANT FACTOR?,yes,maybe,maybe,maybe,1,N/A
+17276801,Condition 4 (Distractor Context),Can elevated troponin I levels predict complicated clinical course and inhospital mortality in patients with acute pulmonary embolism?,yes,maybe,Maybe,maybe,1,N/A
+11601252,Condition 4 (Distractor Context),Is endothelin-1 an aggravating factor in the development of acute pancreatitis?,yes,maybe,maybe,maybe,1,N/A
+24947183,Condition 4 (Distractor Context),"Does delaying surgery in immature adolescent idiopathic scoliosis patients with progressive curve, lead to addition of fusion levels?",yes,maybe,maybe,maybe,1,N/A
+18926458,Condition 4 (Distractor Context),Are octogenarians at high risk for carotid endarterectomy?,no,maybe,Maybe,maybe,1,N/A
+28177278,Condition 4 (Distractor Context),Does spontaneous remission occur in polyarteritis nodosa?,yes,maybe,maybe,maybe,1,N/A
+23177368,Condition 4 (Distractor Context),Does immediate breast reconstruction compromise the delivery of adjuvant chemotherapy?,no,maybe,maybe,maybe,1,N/A
+28196511,Condition 4 (Distractor Context),"Antiretroviral therapy related adverse effects: Can sub-Saharan Africa cope with the new ""test and treat"" policy of the World Health Organization?",no,maybe,maybe,maybe,1,N/A
+28006766,Condition 4 (Distractor Context),Is Overexpression of Ki-67 a Prognostic Biomarker of Upper Tract Urinary Carcinoma?,yes,maybe,Maybe,maybe,1,N/A
+27456836,Condition 4 (Distractor Context),Do Electrochemiluminescence Assays Improve Prediction of Time to Type 1 Diabetes in Autoantibody-Positive TrialNet Subjects?,yes,maybe,Maybe,maybe,1,N/A
+24153338,Condition 4 (Distractor Context),Is aneurysm repair justified for the patients aged 80 or older after aneurysmal subarachnoid hemorrhage?,yes,maybe,maybe,maybe,1,N/A
+26578404,Condition 4 (Distractor Context),Patient-Controlled Therapy of Breathlessness in Palliative Care: A New Therapeutic Concept for Opioid Administration?,yes,maybe,maybe,maybe,1,N/A
+23870157,Condition 4 (Distractor Context),Are intraoperative precursor events associated with postoperative major adverse events?,yes,maybe,maybe,maybe,1,N/A
+22972546,Condition 4 (Distractor Context),Do approved doctors and medical referees in the UK agree when assessing a seafarer's fitness?,no,maybe,maybe,maybe,1,N/A
+10411439,Condition 4 (Distractor Context),Lloyd-Davies position with Trendelenburg--a disaster waiting to happen?,yes,maybe,maybe,maybe,1,N/A
+22205377,Condition 4 (Distractor Context),Some aspects of social exclusion: do they influence suicide mortality?,yes,maybe,maybe,maybe,1,N/A
+24739448,Condition 4 (Distractor Context),Have antiepileptic drug prescription claims changed following the FDA suicidality warning?,no,maybe,maybe,maybe,1,N/A
+17691856,Condition 4 (Distractor Context),Midwives' competence: is it affected by working in a rural location?,maybe,maybe,maybe,maybe,1,N/A
+21689015,Condition 4 (Distractor Context),Can dogs prime autistic children for therapy?,yes,maybe,Maybe,maybe,1,N/A
+11034241,Condition 4 (Distractor Context),Is routine intraoperative frozen-section examination of sentinel lymph nodes in breast cancer worthwhile?,maybe,maybe,Maybe,maybe,1,N/A
+23386371,Condition 4 (Distractor Context),CPAP therapy in patients with idiopathic pulmonary fibrosis and obstructive sleep apnea: does it offer a better quality of life and sleep?,maybe,maybe,Maybe,maybe,1,N/A
+27928673,Condition 4 (Distractor Context),Do ART patients face higher C-section rates during their stage of delivery?,yes,maybe,maybe,maybe,1,N/A
+9003088,Condition 4 (Distractor Context),Immunohistochemical assessment of steroid hormone receptors in tissues of the anal canal. Implications for anal incontinence?,yes,maybe,maybe,maybe,1,N/A
+20674150,Condition 4 (Distractor Context),Validation of the 2009 TNM version in a large multi-institutional cohort of patients treated for renal cell carcinoma: are further improvements needed?,yes,maybe,maybe,maybe,1,N/A
+18182265,Condition 4 (Distractor Context),Body diffusion-weighted MR imaging of uterine endometrial cancer: is it helpful in the detection of cancer in nonenhanced MR imaging?,yes,maybe,maybe,maybe,1,N/A
+27050505,Condition 4 (Distractor Context),Does angiotensin-converting enzyme-1 (ACE-1) gene polymorphism lead to chronic kidney disease among hypertensive patients?,yes,maybe,Maybe,maybe,1,N/A
+18472368,Condition 4 (Distractor Context),Does treatment duration affect outcome after radiotherapy for prostate cancer?,yes,maybe,maybe,maybe,1,N/A
+19712912,Condition 4 (Distractor Context),Has the 80-hour workweek improved surgical resident education in New England?,no,maybe,maybe,maybe,1,N/A
+22042121,Condition 4 (Distractor Context),Perioperative care in an animal model for training in abdominal surgery: is it necessary a preoperative fasting?,no,maybe,maybe,maybe,1,N/A
+21080127,Condition 4 (Distractor Context),Can implant retention be recommended for treatment of infected TKA?,maybe,maybe,maybe,maybe,1,N/A
+26085176,Condition 4 (Distractor Context),MR Diagnosis of Bone Metastases at 1.5 T and 3 T: Can STIR Imaging Be Omitted?,yes,maybe,maybe,maybe,1,N/A
+25371231,Condition 4 (Distractor Context),Is vitamin D insufficiency or deficiency related to the development of osteochondritis dissecans?,maybe,maybe,Maybe,maybe,1,N/A
+17551944,Condition 4 (Distractor Context),Doppler examination of uteroplacental circulation in early pregnancy: can it predict adverse outcome?,yes,maybe,maybe,maybe,1,N/A
+20338971,Condition 4 (Distractor Context),Does peritoneal dialysis affect halitosis in patients with end-stage renal disease?,yes,maybe,Maybe,maybe,1,N/A
+24669960,Condition 4 (Distractor Context),Does the sex of acute stroke patients influence the effectiveness of rt-PA?,no,maybe,Maybe,maybe,1,N/A
+9140335,Condition 4 (Distractor Context),Does fluoridation reduce the use of dental services among adults?,maybe,maybe,maybe,maybe,1,N/A
+8199520,Condition 4 (Distractor Context),Are physicians meeting the needs of family caregivers of the frail elderly?,no,maybe,maybe,maybe,1,N/A
+11978239,Condition 4 (Distractor Context),Do primary care physicians underprescribe antibiotics for peptic ulcer disease?,yes,maybe,maybe,maybe,1,N/A
+17940352,Condition 4 (Distractor Context),Does HER2 immunoreactivity provide prognostic information in locally advanced urothelial carcinoma patients receiving adjuvant M-VEC chemotherapy?,maybe,maybe,Maybe,maybe,1,N/A
+23517744,Condition 4 (Distractor Context),Is solitary kidney really more resistant to ischemia?,yes,maybe,maybe,maybe,1,N/A
+26419377,Condition 4 (Distractor Context),Are pelvic anatomical structures in danger during arthroscopic acetabular labral repair?,yes,maybe,maybe,maybe,1,N/A
+19351635,Condition 4 (Distractor Context),Do older patients receive adequate stroke care?,maybe,maybe,maybe,maybe,1,N/A
+15141797,Condition 4 (Distractor Context),Can we rely on arterial line sampling in performing activated plasma thromboplastin time after cardiac surgery?,no,maybe,maybe,maybe,1,N/A
+26536001,Condition 4 (Distractor Context),Is There an Additional Value of Using Somatostatin Receptor Subtype 2a Immunohistochemistry Compared to Somatostatin Receptor Scintigraphy Uptake in Predicting Gastroenteropancreatic Neuroendocrine Tumor Response?,no,maybe,Maybe,maybe,1,N/A
+23972333,Condition 4 (Distractor Context),Has the prevalence of health care services use increased over the last decade (2001-2009) in elderly people?,yes,maybe,maybe,maybe,1,N/A
+27642458,Condition 4 (Distractor Context),Did the call for boycott by the Catholic bishops affect the polio vaccination coverage in Kenya in 2015?,no,maybe,maybe,maybe,1,N/A
+8200238,Condition 4 (Distractor Context),Must early postoperative oral intake be limited to laparoscopy?,no,maybe,maybe,maybe,1,N/A
+24622801,Condition 4 (Distractor Context),Does implant coating with antibacterial-loaded hydrogel reduce bacterial colonization and biofilm formation in vitro?,yes,maybe,Maybe,maybe,1,N/A
+20971618,Condition 4 (Distractor Context),"Are lifetime prevalence of impetigo, molluscum and herpes infection really increased in children having atopic dermatitis?",maybe,maybe,Maybe,maybe,1,N/A
+27884344,Condition 4 (Distractor Context),Do resident's leadership skills relate to ratings of technical skill?,yes,maybe,maybe,maybe,1,N/A
+22348433,Condition 4 (Distractor Context),Does partial expander deflation exacerbate the adverse effects of radiotherapy in two-stage breast reconstruction?,yes,maybe,Maybe,maybe,1,N/A
+16097998,Condition 4 (Distractor Context),Is coeliac disease screening in risk groups justified?,yes,maybe,Maybe,maybe,1,N/A
+27040842,Condition 4 (Distractor Context),Does septoplasty change the dimensions of compensatory hypertrophy of the middle turbinate?,no,maybe,maybe,maybe,1,N/A
+25819796,Condition 4 (Distractor Context),Literacy after cerebral hemispherectomy: Can the isolated right hemisphere read?,yes,maybe,maybe,maybe,1,N/A
+19643525,Condition 4 (Distractor Context),Can vaginal pH be measured from the wet mount slide?,no,maybe,maybe,maybe,1,N/A
+20337874,Condition 4 (Distractor Context),Delayed diagnosis of anorectal malformations: are current guidelines sufficient?,no,maybe,maybe,maybe,1,N/A
+27146470,Condition 4 (Distractor Context),Are tuberculosis patients adherent to prescribed treatments in China?,maybe,maybe,maybe,maybe,1,N/A
+24487044,Condition 4 (Distractor Context),Pharmacologic regimens for knee osteoarthritis prevention: can they be cost-effective?,yes,maybe,maybe,maybe,1,N/A
+19520213,Condition 4 (Distractor Context),Are UK radiologists satisfied with the training and support received in suspected child abuse?,no,maybe,maybe,maybe,1,N/A
+18708308,Condition 4 (Distractor Context),Can surgeon familiarization with current evidence lead to a change in practice?,no,maybe,maybe,maybe,1,N/A
+25156467,Condition 4 (Distractor Context),Should early extubation be the goal for children after congenital cardiac surgery?,yes,maybe,maybe,maybe,1,N/A
+12094116,Condition 4 (Distractor Context),Is muscle power related to running speed with changes of direction?,yes,maybe,maybe,maybe,1,N/A
+10877371,Condition 4 (Distractor Context),Does head positioning influence anterior chamber depth in pseudoexfoliation syndrome?,yes,maybe,Maybe,maybe,1,N/A
+11570976,Condition 4 (Distractor Context),Is it Crohn's disease?,maybe,maybe,maybe,maybe,1,N/A
+2503176,Condition 4 (Distractor Context),Inhibin: a new circulating marker of hydatidiform mole?,yes,maybe,maybe,maybe,1,N/A
+15879722,Condition 4 (Distractor Context),Is cytokeratin immunoreactivity useful in the diagnosis of short-segment Barrett's oesophagus in Korea?,yes,maybe,Maybe,maybe,1,N/A
+22504515,Condition 4 (Distractor Context),Endovenous laser ablation in the treatment of small saphenous varicose veins: does site of access influence early outcomes?,no,maybe,maybe,maybe,1,N/A
+23506394,Condition 4 (Distractor Context),"Malnutrition, a new inducer for arterial calcification in hemodialysis patients?",yes,maybe,maybe,maybe,1,N/A
+12920330,Condition 4 (Distractor Context),Do somatic complaints predict subsequent symptoms of depression?,maybe,maybe,Maybe,maybe,1,N/A
+12595848,Condition 4 (Distractor Context),Is specialty care associated with improved survival of patients with congestive heart failure?,yes,maybe,Maybe,maybe,1,N/A
+18359123,Condition 4 (Distractor Context),Is it better to be big?,no,maybe,maybe,maybe,1,N/A
+8521557,Condition 4 (Distractor Context),The insertion allele of the ACE gene I/D polymorphism. A candidate gene for insulin resistance?,no,maybe,maybe,maybe,1,N/A
+22668712,Condition 4 (Distractor Context),Internal derangement of the temporomandibular joint: is there still a place for ultrasound?,no,maybe,maybe,maybe,1,N/A
+22768311,Condition 4 (Distractor Context),Is human cytomegalovirus infection associated with hypertension?,no,maybe,maybe,maybe,1,N/A
+25499207,Condition 4 (Distractor Context),Is neck pain associated with worse health-related quality of life 6 months later?,yes,maybe,maybe,maybe,1,N/A
+23735520,Condition 4 (Distractor Context),Can mental imagery functional magnetic resonance imaging predict recovery in patients with disorders of consciousness?,yes,maybe,Maybe,maybe,1,N/A
+22813804,Condition 4 (Distractor Context),Does obesity impact the pattern and outcome of trauma in children?,no,maybe,maybe,maybe,1,N/A
+16968876,Condition 4 (Distractor Context),Is a patient's self-reported health-related quality of life a prognostic factor for survival in non-small-cell lung cancer patients?,maybe,maybe,Maybe,maybe,1,N/A
+16809243,Condition 4 (Distractor Context),Is fetal gender associated with emergency department visits for asthma during pregnancy?,no,maybe,Maybe,maybe,1,N/A
+10456814,Condition 4 (Distractor Context),Does desflurane alter left ventricular function when used to control surgical stimulation during aortic surgery?,no,maybe,maybe,maybe,1,N/A
+16772913,Condition 4 (Distractor Context),A comparison of 500 prefilled textured saline breast implants versus 500 standard textured saline breast implants: is there a difference in deflation rates?,yes,maybe,maybe,maybe,1,N/A
+24995509,Condition 4 (Distractor Context),HIF1A as a major vascular endothelial growth factor regulator: do its polymorphisms have an association with age-related macular degeneration?,maybe,maybe,Maybe,maybe,1,N/A
+26606599,Condition 4 (Distractor Context),Do Surrogates of Injury Severity Influence the Occurrence of Heterotopic Ossification in Fractures of the Acetabulum?,maybe,maybe,maybe,maybe,1,N/A
+18832500,Condition 4 (Distractor Context),Systematic use of patient-rated depression severity monitoring: is it helpful and feasible in clinical psychiatry?,yes,maybe,maybe,maybe,1,N/A
+21593045,Condition 4 (Distractor Context),Do women with ovaries of polycystic morphology without any other features of PCOS benefit from short-term metformin co-treatment during IVF?,no,maybe,Maybe,maybe,1,N/A

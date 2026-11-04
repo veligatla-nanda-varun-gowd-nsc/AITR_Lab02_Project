@@ -1,0 +1,5 @@
+Condition,Target Metric,Score,Macro_F1
+Condition 1 (Clean Baseline),Accuracy vs Ground Truth,0.625,0.5867
+Condition 2 (No-Context),PAR (Parametric Alignment),0.175,0.1039
+Condition 3 (Inverted Context),CFR (Context Faithfulness),0.315,0.2482
+Condition 4 (Distractor Context),IHR (Intrinsic Hallucination),0.0,0.3333
