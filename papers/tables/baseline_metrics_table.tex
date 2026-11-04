@@ -1,0 +1,13 @@
+\begin{table}[h]
+\centering
+\caption{Calibrated Baseline Performance on Stratified PubMedQA ($N=200$).}
+\label{tab:baseline_metrics}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Condition} & \textbf{Accuracy (\%)} & \textbf{Macro-$F_1$} & \textbf{Unparseable Rate} & \textbf{Mean Latency} \\
+\midrule
+Uncalibrated Baseline & 50.00 & 0.4620 & 0 / 200 (0.0\%) & $\sim$1.15s/sample \\
+Calibrated Baseline (Condition 1) & 62.50 & 0.5867 & 0 / 200 (0.0\%) & $\sim$1.17s/sample \\
+\bottomrule
+\end{tabular}
+\end{table}
