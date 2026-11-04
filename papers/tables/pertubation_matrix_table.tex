@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Performance and Behavioral Metrics across the 4-Condition Perturbation Matrix ($N=200$).}
+\label{tab:perturbation_matrix}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Condition} & \textbf{Target Metric} & \textbf{Score} & \textbf{Macro-$F_1$} & \textbf{Sample $N$} & \textbf{95\% CI} \\
+\midrule
+Condition 1: Clean Baseline & Accuracy & 62.50\% & 0.5867 & 200 & $[0.555, 0.691]$ \\
+Condition 2: Closed-Book (No-Context) & Parametric Alignment (PAR) & 17.50\% & 0.1039 & 200 & $[0.126, 0.233]$ \\
+Condition 3: Counterfactual Inversion & Context Faithfulness (CFR) & 31.50\% & 0.2482 & 200 & $[0.252, 0.383]$ \\
+Condition 4: Irrelevant Distractor & Intrinsic Hallucination (IHR) & 0.00\% & 0.3333 & 200 & $[0.000, 0.018]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
