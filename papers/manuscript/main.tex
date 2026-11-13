@@ -1,0 +1,143 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=0.75in, columnsep=0.25in}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\title{\textbf{Benchmarking Factual Accuracy and Hallucination Dynamics of Large Language Models Across Scientific Domains: An Empirical Evaluation on Stratified PubMedQA}}
+
+\author{
+  Veligatla Nanda Varun Gowd \\
+  Department of Information Technology \\
+  Indian Institute of Information Technology, Allahabad \\
+  Prayagraj, Uttar Pradesh, India \\
+  \texttt{mtech.it@iiita.ac.in}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Autoregressive Large Language Models (LLMs) frequently produce outputs that are syntactically fluent yet empirically ungrounded when evaluated on specialized scientific literature. In clinical and biomedical settings, distinguishing genuine evidence extraction from parametric memorization is essential for safe deployment under edge memory constraints. This study presents a controlled empirical benchmark evaluating a 4-bit NormalFloat (NF4) quantized \texttt{Qwen/Qwen2.5-7B-Instruct} architecture across a balanced, stratified subset ($N=200$) of the PubMedQA (\texttt{pqa\_labeled}) corpus under deterministic greedy decoding ($\tau = 0.0$). After diagnosing and resolving an initial instruction-induced epistemic hedging bias—which elevated baseline accuracy from $50.00\%$ to $62.50\%$ ($\text{Macro-}F_1 = 0.5867$)—we execute an $800$-inference interventional matrix spanning four evidential regimes: clean context, closed-book no-context, counterfactual inverted context, and irrelevant distractor context. Empirical results reveal that closed-book accuracy drops sharply to a Parametric Alignment Rate (PAR) of $17.50\%$, confirming minimal reliance on memorized priors. Under irrelevant distractor abstracts, the model achieves a $0.00\%$ Intrinsic Hallucination Rate (IHR; $95\%$ CI $[0.000, 0.018]$), abstaining across all $200$ trials. Conversely, synthetic conclusion inversion yields a Context Faithfulness Rate (CFR) of $31.50\%$, exposing conservative inertia when modified premises conflict with internal biomedical representations.
+\end{abstract}
+
+\section{Introduction}
+The rapid adoption of autoregressive Transformer architectures in biomedical literature synthesis and clinical decision support has highlighted a fundamental operational tension: foundation models optimize conditional next-token likelihood rather than empirical faithfulness \cite{huang2023survey,rawte2023survey}. When tasked with answering research questions grounded in clinical abstracts, an instruction-tuned model must balance two competing signals: the explicit evidence supplied in the prompt context and the parametric associations encoded in its pre-training weights \cite{ji2023survey}.
+
+In resource-constrained academic and clinical environments, deploying 7-billion-parameter models typically requires 4-bit weight quantization to fit within consumer or cloud GPU memory limits. However, quantization alters output logit margins, potentially amplifying either ungrounded parametric guessing or excessive refusal behavior. To measure these dynamics systematically without confounding sampling variance, this work implements a reproducible, four-condition interventional framework on a class-balanced partition of PubMedQA \cite{jin2019pubmedqa}.
+
+Specifically, our investigation addresses three empirical questions:
+\begin{enumerate}
+    \item \textbf{Parametric vs. Contextual Dependence:} To what extent does a 4-bit quantized 7B model rely on memorized biomedical priors versus active abstract extraction?
+    \item \textbf{Counterfactual Context Faithfulness:} When explicit clinical conclusions in an abstract are synthetically inverted, how consistently does the model update its categorical verdict?
+    \item \textbf{Distractor Hallucination Suppression:} When paired with topically unrelated biomedical abstracts, does the model fabricate assertions or appropriately abstain?
+\end{enumerate}
+
+\section{Related Work}
+\subsection{Biomedical Question Answering Benchmarks}
+Evaluating clinical reasoning in language models relies heavily on domain-specific corpora such as MedQA \cite{jin2021disease} and PubMedQA \cite{jin2019pubmedqa}. While MedQA assesses multi-choice diagnostic recall modeled on medical licensing examinations \cite{singhal2023large,singhal2023towards}, PubMedQA evaluates reasoning over structured PubMed abstracts by requiring categorical verdicts (\texttt{yes}, \texttt{no}, or \texttt{maybe}) conditioned on explicit study findings.
+
+\subsection{Hallucination Taxonomies and Adversarial Testing}
+Survey literature categorizes model inaccuracies into intrinsic hallucinations—outputs that directly contradict supplied source text—and extrinsic hallucinations that introduce unverified external claims \cite{huang2023survey,rawte2023survey}. Lin et al. \cite{lin2022truthfulqa} demonstrated that scaling parameter counts alone does not eliminate imitative falsehoods. Within clinical NLP, Umapathi et al. \cite{umapathi2023medhalt} introduced Med-HALT to probe hallucination triggers via false or contradictory medical premises. Building upon these diagnostic paradigms, our protocol isolates closed-book priors, lexical conclusion inversions, and cross-abstract distractors under identical greedy decoding settings.
+
+\section{Methodology and Experimental Setup}
+\subsection{Model Architecture and Quantization Runtime}
+All experiments evaluate \texttt{Qwen/Qwen2.5-7B-Instruct} executed on an NVIDIA Tesla T4 GPU ($15\text{ GB}$ VRAM). To ensure reproducibility on accessible hardware, model weights are loaded via \texttt{bitsandbytes} using 4-bit NormalFloat (NF4) double quantization with \texttt{bfloat16} compute kernels, maintaining peak memory allocation below $5.5\text{ GB}$. Inference uses strict deterministic greedy decoding ($\tau = 0.0$, \texttt{do\_sample=False}, \texttt{max\_new\_tokens=16}), eliminating stochastic token variance across runs.
+
+\subsection{Stratified Dataset Partitioning}
+The raw \texttt{pqa\_labeled} split of PubMedQA ($1,000$ expert-annotated instances) exhibits substantial class skew ($\approx 55\%$ \texttt{yes}). To prevent majority-class guessing from inflating accuracy, we construct a frozen, stratified evaluation set of $N = 200$ instances using random seed $42$, preserving representative class proportions: $100$ \texttt{yes} ($50.0\%$), $66$ \texttt{no} ($33.0\%$), and $34$ \texttt{maybe} ($17.0\%$).
+
+\subsection{Four-Condition Perturbation Matrix}
+Each of the $200$ benchmark questions is evaluated across four controlled conditions ($N = 800$ total inferences):
+\begin{itemize}
+    \item \textbf{Condition 1 (Clean Baseline):} Questions paired with their unmodified original PubMed abstracts, evaluated against ground-truth labels.
+    \item \textbf{Condition 2 (Closed-Book No-Context):} Abstracts are stripped entirely, measuring the \textit{Parametric Alignment Rate} (PAR)—the proportion of questions answered correctly from pre-trained weights alone.
+    \item \textbf{Condition 3 (Counterfactual Inverted Context):} Regular-expression lexical transformations invert primary conclusion verbs and clinical efficacy qualifiers (e.g., mapping \textit{``is significantly associated with''} to \textit{``is not significantly associated with''}). Target labels invert binary verdicts (\texttt{yes} $\leftrightarrow$ \texttt{no}) to measure the \textit{Context Faithfulness Rate} (CFR).
+    \item \textbf{Condition 4 (Irrelevant Distractor Context):} Each question is paired via cyclic derangement ($i \neq (i + s) \bmod N$) with an unrelated abstract from another medical study. Any affirmative (\texttt{yes}) or negative (\texttt{no}) assertion is counted toward the \textit{Intrinsic Hallucination Rate} (IHR), whereas \texttt{maybe} indicates proper abstention.
+\end{itemize}
+
+\section{Baseline Prompt Calibration}
+Initial zero-shot evaluation under Condition 1 yielded an uncalibrated accuracy of $50.00\%$ ($\text{Macro-}F_1 = 0.4620$). Error auditing revealed severe epistemic over-hedging: the model predicted \texttt{maybe} on $99$ of $200$ instances ($49.5\%$), conflating routine academic caveats in PubMed conclusions (e.g., \textit{``further prospective trials are warranted''}) with an absence of empirical findings.
+
+Recalibrating the system prompt to explicitly instruct the model to extract the authors' primary empirical verdict—reserving \texttt{maybe} strictly for inconclusive, missing, or unrelated evidence—eliminated false hedging. As shown in Table~\ref{tab:baseline_metrics}, recalibration improved clean baseline accuracy by $+12.50$ percentage points to $62.50\%$ ($\text{Macro-}F_1 = 0.5867$) while maintaining a $0.0\%$ unparseable output rate.
+
+\begin{table}[t]
+\centering
+\caption{Calibrated Baseline Performance on Stratified PubMedQA ($N=200$).}
+\label{tab:baseline_metrics}
+\small
+\begin{tabularx}{\columnwidth}{>{\raggedright\arraybackslash}X c c c}
+\toprule
+\textbf{Baseline Variant} & \textbf{Acc. (\%)} & \textbf{Macro-$F_1$} & \textbf{Latency} \\
+\midrule
+Uncalibrated Baseline & 50.00 & 0.4620 & $\sim$1.15s \\
+Calibrated Baseline (Cond. 1) & 62.50 & 0.5867 & $\sim$1.17s \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Experimental Results and Discussion}
+\subsection{Quantitative Matrix Overview}
+Table~\ref{tab:perturbation_matrix} and Figure~\ref{fig:matrix_eval} summarize model performance across all four evidential conditions.
+
+\begin{table*}[t]
+\centering
+\caption{Empirical Performance and Behavioral Metrics Across the 4-Condition Perturbation Matrix ($N=200$ per Condition).}
+\label{tab:perturbation_matrix}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c c c c}
+\toprule
+\textbf{Experimental Condition} & \textbf{Primary Target Metric} & \textbf{Score (\%)} & \textbf{Macro-$F_1$} & \textbf{Samples ($N$)} & \textbf{95\% CI} \\
+\midrule
+Condition 1: Clean Baseline & Categorical Accuracy & 62.50 & 0.5867 & 200 & $[0.555, 0.691]$ \\
+Condition 2: Closed-Book (No-Context) & Parametric Alignment Rate (PAR) & 17.50 & 0.1039 & 200 & $[0.126, 0.233]$ \\
+Condition 3: Counterfactual Inversion & Context Faithfulness Rate (CFR) & 31.50 & 0.2482 & 200 & $[0.252, 0.383]$ \\
+Condition 4: Irrelevant Distractor & Intrinsic Hallucination Rate (IHR) & 0.00 & 0.3333$^{\dagger}$ & 200 & $[0.000, 0.018]$ \\
+\bottomrule
+\end{tabularx}
+\vspace{3pt}
+\parbox{\textwidth}{\footnotesize $^{\dagger}$In Condition 4, $\text{Macro-}F_1 = 0.3333$ reflects $100\%$ precision and recall on the single target abstention class (\texttt{maybe}) across three classes.}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/perturbation_matrix_evaluation.pdf}
+\caption{Comparison of target diagnostic scores and $\text{Macro-}F_1$ across the four experimental conditions on stratified PubMedQA ($N=200$).}
+\label{fig:matrix_eval}
+\end{figure}
+
+\subsection{Parametric Grounding vs. Closed-Book Collapse}
+When abstract context is removed in Condition 2, accuracy drops by $45.00$ percentage points from $62.50\%$ to $\text{PAR} = 17.50\%$ ($\text{Macro-}F_1 = 0.1039$). Without supporting text, the model defaults overwhelmingly to abstention rather than guessing from pre-trained weights. This confirms that baseline performance on PubMedQA reflects genuine in-context comprehension rather than dataset memorization.
+
+\subsection{Resistance to Counterfactual Inversion}
+In Condition 3, inverting key clinical conclusions yields a Context Faithfulness Rate of $31.50\%$ ($63/200$ instances; $\text{Macro-}F_1 = 0.2482$). In the remaining $68.50\%$ of trials, the model refused to endorse the inverted verdict. Two mechanisms explain this negative finding: first, parametric inertia causes pre-trained biomedical representations to resist claims contradicting established medical consensus; second, rule-based verb inversion leaves secondary quantitative indicators (such as $p$-values and hazard ratios) unflipped, creating internal textual tension that nudges the model toward \texttt{maybe}.
+
+\subsection{Zero Intrinsic Hallucination Under Distractors}
+Under Condition 4, pairing questions with unrelated abstracts produces an Intrinsic Hallucination Rate of $0.00\%$ ($0/200$ ungrounded \texttt{yes}/\texttt{no} assertions; exact binomial test $p = 1.24 \times 10^{-60}$ against random binary guessing, $95\%$ CI $[0.000, 0.018]$). Across all $200$ distractor trials, the instruction-calibrated model cleanly identified the topical mismatch and output \texttt{maybe}.
+
+\section{Limitations and Future Work}
+Three methodological boundaries frame these results. First, all evaluations reflect 4-bit NF4 quantized weights; full-precision FP16 or INT8 checkpoints may exhibit slightly sharper decision boundaries under counterfactual conflict. Second, lexical regex inversion modifies focal conclusion clauses without rewriting supporting statistical tables, which can introduce intra-abstract contradictions. Third, while $N=200$ provides tight confidence bounds for large behavioral shifts, larger sample sizes are needed for specialty-level stratification.
+
+Future work should prioritize: (1) LLM-assisted end-to-end counterfactual abstract rewriting to eliminate lexical artifacts, (2) precision ablation comparing NF4, INT8, and FP16 weights, and (3) mechanistic residual-stream probing to localize where parametric priors override contextual attention heads.
+
+\section{Conclusion}
+This study benchmarked factual accuracy and hallucination dynamics in a 4-bit NF4 quantized \texttt{Qwen2.5-7B-Instruct} model across a stratified $N=200$ PubMedQA matrix. Prompt calibration resolved epistemic hedging to achieve $62.50\%$ clean accuracy, while interventional testing demonstrated strong contextual grounding ($\text{PAR} = 17.50\%$) and complete abstention on irrelevant distractors ($\text{IHR} = 0.00\%$). At the same time, a $31.50\%$ Context Faithfulness Rate under conclusion inversion underscores that quantized models retain substantial conservative inertia when supplied premises conflict with internal representations.
+
+\bibliographystyle{plainurl}
+\bibliography{references}
+
+\end{document}
