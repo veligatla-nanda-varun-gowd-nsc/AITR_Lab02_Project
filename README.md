@@ -47,7 +47,7 @@ In clinical and biomedical question-answering, autoregressive language models mu
 │   ├── tables/
 │   │   ├── baseline_metrics_table.tex
 │   │   └── perturbation_matrix_table.tex
-│   └── survey/                        # Archival literature survey artifacts
+│   
 ├── results/
 │   ├── baseline_predictions.csv       # Condition 1 calibrated predictions (N=200)
 │   ├── baseline_metrics.csv           # Condition 1 summary metrics
