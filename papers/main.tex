@@ -8,14 +8,22 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{abstract}
 \usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc}
 \usepackage{microtype}
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
 
-\title{\textbf{Benchmarking Factual Accuracy and Hallucination Dynamics of Large Language Models Across Scientific Domains: A Survey}}
+\renewcommand{\abstractnamefont}{\normalfont\small\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\title{\textbf{Benchmarking Factual Accuracy and Hallucination Dynamics of Large Language Models Across Scientific Domains: An Empirical Evaluation on Stratified PubMedQA}}
 
 \author{
   Veligatla Nanda Varun Gowd \\
@@ -29,291 +37,270 @@
 
 \begin{document}
 
-\maketitle
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \maketitle
+    \begin{onecolabstract}
+    Autoregressive language models frequently generate fluent prose that departs from the evidence supplied in a prompt. In biomedical question answering, distinguishing genuine reading comprehension from parametric recall matters even more when models run under tight memory budgets. Here we evaluate a 4-bit NormalFloat (NF4) quantized \texttt{Qwen/Qwen2.5-7B-Instruct} checkpoint on a class-stratified subset ($N=200$) of PubMedQA (\texttt{pqa\_labeled}) under deterministic greedy decoding ($\tau = 0.0$). Initial zero-shot testing exposed a heavy instruction-induced hedging bias: nearly half of all predictions ($49.5\%$) collapsed into \texttt{maybe} abstentions, capping accuracy at $50.00\%$. Refining the system prompt to isolate primary empirical conclusions lifted clean baseline accuracy to $62.50\%$ ($\text{Macro-}F_1 = 0.5867$). Using this calibrated baseline, we ran an $800$-inference perturbation matrix across four evidential regimes: unmodified abstracts, closed-book prompts without abstracts, regex-inverted clinical conclusions, and unrelated distractor abstracts. Stripping the abstract drops ungrounded guessing to a Parametric Alignment Rate (PAR) of $17.50\%$—yielding an $82.50\%$ Context Dependence Rate ($\text{Macro-}F_1 = 0.1039$) and confirming that the model relies on in-context text rather than memorized answers. Under irrelevant distractors, the model achieved $100.00\%$ Distractor Abstention Accuracy, corresponding to a $0.00\%$ Intrinsic Hallucination Rate (IHR; $95\%$ CI $\lbrack 0.000, 0.018\rbrack$, exact binomial $p = 1.24 \times 10^{-60}$). When conclusion clauses were synthetically inverted, however, the Context Faithfulness Rate (CFR) reached $31.50\%$ ($\text{Macro-}F_1 = 0.2482$), exposing strong conservative inertia when flipped text clashes with internal priors and unperturbed numerical statistics.
 
-\begin{abstract}
-The architectural scaling and autoregressive pre-training of Large Language Models (LLMs) have precipitated fundamental transformations across computational linguistics, natural scientific reasoning, and automated hypothesis synthesis. Despite achieving parity with human experts on standardized examinations, frontier neural architectures remain fundamentally compromised by hallucinations: generations that are syntactically fluent yet empirically ungrounded, mathematically inconsistent, or factually deceptive. In mission-critical scientific domains spanning clinical medicine, synthetic chemistry, and graduate-level theoretical physics, factual deviations directly jeopardize empirical integrity, clinical safety, and physical reproducibility. This survey provides an exhaustive, taxonomy-driven analysis of the benchmarking protocols, evaluation metrics, and diagnostic corpora formulated to quantify factual precision in foundation models. We examine intrinsic versus extrinsic hallucinations, contrast lexical overlap metrics with fine-grained atomic claim decomposition and representation-space probing, and synthesize discipline-specific benchmarks including GPQA, SciEval, ChemBench, Med-PaLM, and TruthfulQA. Furthermore, we investigate the epistemological crisis of scalable oversight, empirical inverse-scaling vulnerabilities, and the emergence of multimodal hallucinations across vision-language architectures. Finally, we formulate concrete future trajectories, highlighting programmatic procedural benchmarks, representation-space steering, and self-verifying autonomous scientific agent loops.
-\end{abstract}
+    \vspace{0.6em}
+    \noindent\textbf{CCS Concepts:} $\bullet$ \textbf{Computing methodologies $\rightarrow$ Natural language generation;} \textit{Model verification and validation}; $\bullet$ \textbf{Applied computing $\rightarrow$ Health informatics.}
 
-\noindent\textbf{Keywords:} Large Language Models, Factual Accuracy, Hallucination, Scientific Benchmarking, Scalable Oversight, Atomic Fact Verification, Inverse Scaling, Mechanistic Interpretability.
+    \vspace{0.3em}
+    \noindent\textbf{Keywords:} Large Language Models, Factual Accuracy, Hallucination Dynamics, Biomedical Question Answering, Quantization, Context Faithfulness, PubMedQA.
+    \end{onecolabstract}
+    \vspace{1.0em}
+  \end{@twocolumnfalse}
+]
 
 \section{Introduction}
-The scaling of autoregressive Transformer architectures \cite{vaswani2017attention} has revolutionized the automation of scientific workflows, biomedical literature mining, and multi-step algorithmic derivation \cite{jablonka2024superhuman,singhal2023large}. High-capacity models, including GPT-4, Claude 3.5, and specialized biomedical iterations such as Med-PaLM 2 \cite{singhal2023towards}, have achieved expert-level scores on challenging standardized milestones, ranging from the United States Medical Licensing Examination (USMLE) \cite{jin2019pubmedqa} to collegiate Olympiad-level chemistry assessments \cite{jablonka2024superhuman}.
-
-However, because autoregressive language models operate fundamentally by optimizing conditional probability distributions over token sequences,
+Autoregressive Transformers \cite{vaswani2017attention} are now routinely applied to biomedical literature synthesis and clinical decision support, yet their training objective remains misaligned with strict evidential grounding \cite{huang2023survey,rawte2023survey}. Given a prefix $x_{<t}$, the model assigns probability to the next token $x_t$ via
 \begin{equation}
-p(x) = \prod_{t=1}^{T} p(x_{t} \mid x_{<t}; \theta),
+p(x) = \prod_{t=1}^{T} p(x_t \mid x_{<t}; \theta),
 \end{equation}
-they prioritize statistical likelihood, contextual cohesion, and surface grammatical fluency over empirical grounding and semantic truth \cite{huang2023survey,rawte2023survey}. Consequently, foundation architectures remain prone to hallucinations—generating assertions that appear authoritative and internally consistent, yet directly contradict empirical facts, misstate formal mathematical theorems, or synthesize spurious biochemical interactions \cite{lin2022truthfulqa,rawte2023survey}. In creative writing, low-probability token sequences provide creative variability; however, within scientific computing, the error tolerance is zero. A hallucinated clinical dosage, an incorrect reaction mechanism, or an ungrounded mathematical derivation can undermine physical safety and scientific reproducibility \cite{singhal2023towards,umapathi2023medhalt}.
+optimizing local token likelihood rather than fidelity to an attached source passage \cite{ji2023survey}. When answering questions over clinical abstracts, the model must weigh two competing signals: explicit findings written in the prompt and statistical associations stored in pre-trained weights \cite{lin2022truthfulqa}.
 
-\subsection{Prior Surveys and Limitations}
-Several prior surveys have investigated hallucination taxonomy and mitigation. Rawte et al. \cite{rawte2023survey} and Huang et al. \cite{huang2023survey} formalized the baseline taxonomy dividing intrinsic and extrinsic hallucinations in general NLP tasks. Ji et al. \cite{ji2023survey} evaluated natural language generation hallucination prior to the widespread emergence of frontier reasoning models. However, existing surveys exhibit three major limitations:
-\begin{itemize}
-    \item \textbf{Generalist Focus:} They focus predominantly on open-domain dialogue, summarization, and machine translation, failing to address the epistemological challenges of scientific disciplines where ground-truth requires complex, multi-step symbolic and structural reasoning.
-    \item \textbf{Lack of Deep Domain Benchmarks:} Previous syntheses do not systematically contrast domain-specific benchmarks such as GPQA \cite{rein2023gpqa}, SciEval \cite{sun2024scieval}, ChemBench \cite{jablonka2024superhuman}, and MACBENCH \cite{anonymous2024macbench}.
-    \item \textbf{Omission of Scalable Oversight \& Inverse Scaling:} Prior surveys do not sufficiently dissect the paradox of scalable oversight (benchmarks exceeding non-expert human verifiability) or the counter-intuitive phenomenon of inverse scaling \cite{lin2022truthfulqa}.
-\end{itemize}
+Running 7-billion-parameter models on standard academic hardware ($6\text{--}15\text{ GB}$ VRAM) usually requires 4-bit weight quantization. Compressing weights to 4 bits shrinks logit margins near decision boundaries, which can push a model toward either ungrounded guessing or excessive refusal. Standard evaluation on static benchmarks cannot separate these behaviors from dataset memorization or class-imbalance shortcuts \cite{sun2024scieval}.
 
-\subsection{Contributions}
-This review paper provides a rigorous synthesis of the state-of-the-art in evaluating scientific factuality in foundation models:
+To examine how a quantized model handles evidence under controlled conflict, we built a four-condition perturbation benchmark on a stratified $N=200$ partition of PubMedQA \cite{jin2019pubmedqa}. Our experiments address four practical questions:
 \begin{enumerate}
-    \item \textbf{Systematic Taxonomy:} We formalize the failure modes of generative models across natural sciences, detailing intrinsic versus extrinsic and factual versus structural errors, illustrated in Figure~\ref{fig:taxonomy}.
-    \item \textbf{Domain-Specific Benchmark Audit:} We analyze benchmarks across biology, physics, chemistry, and clinical medicine, investigating static versus dynamic problem generation and dataset leakage.
-    \item \textbf{Evaluation Methodology Analysis:} We provide a mathematical and procedural dissection of evaluation frameworks, tracking the shift from $n$-gram lexical overlap to atomic claim verification (FActScore) \cite{min2023factscore}, classifier-based NLI, and internal representation probes.
-    \item \textbf{Open Challenges and Roadmap:} We identify critical bottlenecks, such as data contamination, multi-truth ambiguity, and multimodal hallucinations, and map concrete trajectories for autonomous, self-verifying scientific agents.
+    \item How much does zero-shot prompt wording distort abstention rates on clinical abstracts, and how much accuracy is recovered once false hedging is removed ($50.00\% \to 62.50\%$)?
+    \item How strongly does a 4-bit 7B checkpoint depend on supplied abstracts rather than memorized parametric priors ($82.50\%$ Context Dependence Rate; $\text{PAR} = 17.50\%$)?
+    \item Does the model update its verdict when primary conclusion verbs in the abstract are inverted ($\text{CFR} = 31.50\%$)?
+    \item Does pairing a clinical question with an unrelated abstract trigger fabricated answers or reliable abstention ($100.00\%$ Distractor Abstention Accuracy; $\text{IHR} = 0.00\%$)?
 \end{enumerate}
 
-\subsection{Organization}
-The remainder of this survey is structured as follows: Section 2 details the survey methodology and search protocol. Section 3 establishes the formal taxonomy and operational mechanics of hallucinations. Section 4 provides an in-depth review across general science, biomedical systems, chemistry, and knowledge graphs. Section 5 traces the evolution of factuality evaluation methodologies. Section 6 presents systematic comparative analyses of models and datasets. Section 7 evaluates open research gaps, and Section 8 concludes the paper.
+\section{Related Work}
+\subsection{Scientific and Biomedical Benchmarks}
+Evaluation suites for scientific reasoning span graduate-level physics and chemistry problems—such as GPQA \cite{rein2023gpqa}, SciEval \cite{sun2024scieval}, ChemBench \cite{jablonka2024superhuman}, and SciBench \cite{wang2024scibench}—alongside clinical corpora. In medicine, MedQA \cite{jin2021disease} tests diagnostic recall using licensing-exam vignettes \cite{singhal2023large,singhal2023towards}, while PubMedQA \cite{jin2019pubmedqa} evaluates reading comprehension over structured research abstracts using three categorical labels (\texttt{yes}, \texttt{no}, and \texttt{maybe}).
+
+\subsection{Hallucination Taxonomies and Metrics}
+Prior surveys divide model errors by evidential origin \cite{huang2023survey,rawte2023survey}. \textit{Intrinsic hallucinations} directly contradict statements present in the input context, whereas \textit{extrinsic hallucinations} introduce claims that the context neither supports nor refutes \cite{ji2023survey}. Surface overlap scores like BLEU \cite{papineni2002bleu} and ROUGE \cite{lin2004rouge} miss single-token negations that reverse clinical meaning, leading to claim-level entailment benchmarks such as FActScore \cite{min2023factscore} and FELM \cite{chen2023felm}.
+
+\subsection{Context Conflict and Adversarial Premises}
+Work on TruthfulQA showed that larger parameter counts alone do not prevent models from repeating common falsehoods \cite{lin2022truthfulqa}. Within biomedical NLP, Med-HALT tests whether contradictory clinical premises induce false confirmations \cite{umapathi2023medhalt}. Retrieval-augmented generation studies have likewise documented \textit{context neglect}, where models ignore supplied passages in favor of pre-trained priors \cite{patel2024factuality}. Our perturbation matrix isolates closed-book recall, conclusion inversion, and distractor mismatch under identical greedy decoding settings.
+
+\section{Methodology and Experimental Setup}
+\subsection{Model Runtime and Quantization}
+We evaluate \texttt{Qwen/Qwen2.5-7B-Instruct} on an NVIDIA Tesla T4 GPU ($15\text{ GB}$ VRAM). Weights are loaded through \texttt{bitsandbytes} using 4-bit NormalFloat (\texttt{nf4}) double quantization with \texttt{bfloat16} compute kernels, keeping peak VRAM consumption under $5.5\text{ GB}$. All runs use deterministic greedy decoding ($\tau = 0.0$, \texttt{do\_sample=False}, \texttt{max\_new\_tokens=16}) so that observed differences come solely from input manipulations rather than sampling noise.
 
 \begin{figure*}[t]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-    node distance=0.8cm and 0.4cm,
-    root/.style={rectangle, rounded corners, draw=black, fill=blue!15, font=\bfseries\small, inner sep=6pt},
-    axis/.style={rectangle, rounded corners, draw=black, fill=gray!12, font=\small, inner sep=5pt},
-    cat/.style={rectangle, rounded corners, draw=black, fill=gray!6, font=\footnotesize, inner sep=4pt},
-    leaf/.style={rectangle, draw=black!70, fill=white, font=\scriptsize, align=center, inner sep=3pt, text width=1.95cm},
+    node distance=0.6cm and 0.55cm,
+    block/.style={rectangle, rounded corners, draw=black, fill=blue!10, font=\footnotesize\bfseries, align=center, inner sep=6pt, minimum height=1.0cm},
+    cond/.style={rectangle, rounded corners, draw=black, fill=gray!10, font=\scriptsize, align=left, inner sep=4pt, text width=3.5cm},
+    model/.style={rectangle, rounded corners, draw=black, fill=orange!15, font=\footnotesize\bfseries, align=center, inner sep=6pt, minimum height=1.2cm},
+    eval/.style={rectangle, rounded corners, draw=black, fill=green!12, font=\footnotesize\bfseries, align=center, inner sep=6pt, minimum height=1.0cm},
     arrow/.style={->, >=stealth, thick}
 ]
-\node[root] (root) {LLM Scientific Inaccuracies};
-\node[axis, below left=0.8cm and 2.5cm of root] (ctx) {Contextual Origin};
-\node[axis, below right=0.8cm and 2.5cm of root] (epi) {Epistemic Nature};
+\node[block] (data) {PubMedQA (\texttt{pqa\_labeled})\\Raw $N=1,000$};
+\node[block, right=of data] (strat) {Stratified Split\\$N=200$ (Seed 42)\\100 \texttt{yes} / 66 \texttt{no} / 34 \texttt{maybe}};
 
-\node[cat, below left=0.7cm and 1.1cm of ctx] (int) {Intrinsic};
-\node[cat, below right=0.7cm and 1.1cm of ctx] (ext) {Extrinsic};
-\node[cat, below left=0.7cm and 1.1cm of epi] (fac) {Factual};
-\node[cat, below right=0.7cm and 1.1cm of epi] (str) {Structural};
+\node[cond, right=0.8cm of strat, yshift=1.35cm] (c1) {\textbf{Cond. 1: Clean Baseline}\\Original abstract $\to$ Acc. ($62.50\%$)};
+\node[cond, below=0.18cm of c1] (c2) {\textbf{Cond. 2: Closed-Book}\\No abstract $\to$ PAR ($17.50\%$)};
+\node[cond, below=0.18cm of c2] (c3) {\textbf{Cond. 3: Counterfactual}\\Inverted conclusion $\to$ CFR ($31.50\%$)};
+\node[cond, below=0.18cm of c3] (c4) {\textbf{Cond. 4: Distractor}\\Deranged abstract $\to$ IHR ($0.00\%$)};
 
-\node[leaf, below left=0.7cm and -0.1cm of int] (l1) {Context Conflict};
-\node[leaf, below right=0.7cm and -0.1cm of int] (l2) {Outcome Reversal};
-\node[leaf, below left=0.7cm and -0.1cm of ext] (l3) {Unverified Prior};
-\node[leaf, below right=0.7cm and -0.1cm of ext] (l4) {Ungrounded RAG};
-\node[leaf, below left=0.7cm and -0.1cm of fac] (l5) {Parametric Distortion};
-\node[leaf, below right=0.7cm and -0.1cm of fac] (l6) {Law Violation};
-\node[leaf, below left=0.7cm and -0.1cm of str] (l7) {Step-Wise Error};
-\node[leaf, below right=0.7cm and -0.1cm of str] (l8) {Multimodal Mismatch};
+\node[model, right=0.8cm of $(c2.east)!0.5!(c3.east)$] (llm) {\texttt{Qwen2.5-7B-Instruct}\\4-Bit NF4 (\texttt{bfloat16})\\Greedy $\tau=0.0$ ($N=800$)};
 
-\draw[arrow] (root) -- (ctx);
-\draw[arrow] (root) -- (epi);
-\draw[arrow] (ctx) -- (int);
-\draw[arrow] (ctx) -- (ext);
-\draw[arrow] (epi) -- (fac);
-\draw[arrow] (epi) -- (str);
-\draw[arrow] (int) -- (l1);
-\draw[arrow] (int) -- (l2);
-\draw[arrow] (ext) -- (l3);
-\draw[arrow] (ext) -- (l4);
-\draw[arrow] (fac) -- (l5);
-\draw[arrow] (fac) -- (l6);
-\draw[arrow] (str) -- (l7);
-\draw[arrow] (str) -- (l8);
+\node[eval, right=0.7cm of llm] (audit) {Statistical Audit\\Accuracy, Macro-$F_1$\\95\% CIs \& Binomial $p$};
+
+\draw[arrow] (data) -- (strat);
+\draw[arrow] (strat.east) -- ++(0.35,0) |- (c1.west);
+\draw[arrow] (strat.east) -- ++(0.35,0) |- (c2.west);
+\draw[arrow] (strat.east) -- ++(0.35,0) |- (c3.west);
+\draw[arrow] (strat.east) -- ++(0.35,0) |- (c4.west);
+
+\draw[arrow] (c1.east) -| ($(llm.west)+(-0.3,0)$) -- (llm.west);
+\draw[arrow] (c2.east) -| ($(llm.west)+(-0.3,0)$) -- (llm.west);
+\draw[arrow] (c3.east) -| ($(llm.west)+(-0.3,0)$) -- (llm.west);
+\draw[arrow] (c4.east) -| ($(llm.west)+(-0.3,0)$) -- (llm.west);
+
+\draw[arrow] (llm) -- (audit);
 \end{tikzpicture}%
 }
-\caption{Hierarchical taxonomy of language model inaccuracies and hallucination modalities across natural science disciplines (see Section 3).}
-\label{fig:taxonomy}
+\caption{Overview of the experimental pipeline: stratified sampling of PubMedQA ($N=200$), four-condition perturbation matrix ($800$ inferences), deterministic 4-bit NF4 decoding, and statistical evaluation.}
+\label{fig:pipeline}
 \end{figure*}
 
-\section{Survey Protocol and Methodology}
-To maintain rigorous survey standards, our literature synthesis is organized around systematic review criteria. We audited scholarly literature from primary indices, including IEEE Xplore, ACM Digital Library, PubMed, NeurIPS/CVPR/ICLR proceedings, and arXiv preprints published up to 2026.
+\subsection{Stratified Evaluation Split}
+The full \texttt{pqa\_labeled} split of PubMedQA ($1,000$ annotated pairs) is skewed toward affirmative answers ($\approx 55\%$ \texttt{yes}). Using random seed $42$, we sampled a frozen stratified subset $\mathcal{D} = \{(q_i, c_i, y_i)\}_{i=1}^{N}$ of $N = 200$ items containing $100$ \texttt{yes} ($50.0\%$), $66$ \texttt{no} ($33.0\%$), and $34$ \texttt{maybe} ($17.0\%$) instances.
 
-\subsection{Inclusion and Exclusion Criteria}
-Studies were incorporated if they met the following criteria:
-\begin{itemize}
-    \item They directly propose, evaluate, or benchmark factual accuracy, hallucination detection, or truthfulness metrics in LLMs or Vision-Language Models (VLMs).
-    \item They encompass empirical applications across the natural sciences (physics, chemistry, materials science) or biomedical/clinical reasoning.
-    \item They introduce formal diagnostic datasets, quantitative metrics, or mechanistic evaluation architectures.
-\end{itemize}
-We excluded papers that focused exclusively on open-domain creative generation without explicit factuality bounds, unvalidated opinion articles, and duplicate preprints.
+\subsection{Four-Condition Perturbation Matrix}
+Every question in $\mathcal{D}$ is tested under four evidential conditions ($800$ total inferences, Figure~\ref{fig:pipeline}):
 
-\section{Taxonomy and Mechanics of Scientific Hallucination}
-As illustrated in Figure~\ref{fig:taxonomy}, hallucinations in scientific applications must be categorized across two orthogonal operational axes: contextual origin and epistemic nature \cite{huang2023survey}.
+\subsubsection{Condition 1: Clean Baseline}
+Questions $q_i$ are paired with their original abstracts $c_i$ and scored against ground-truth labels $y_i \in \{\texttt{yes}, \texttt{no}, \texttt{maybe}\}$:
+\begin{equation}
+\text{Acc} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{I}(\hat{y}_i^{(1)} = y_i).
+\end{equation}
 
-\subsection{Contextual Origin: Intrinsic vs. Extrinsic}
-\textbf{Intrinsic Hallucinations:} An intrinsic hallucination occurs when an LLM's generated assertion directly contradicts reference context explicitly provided in the user prompt \cite{rawte2023survey}. For example, in automated clinical trial summarization, if the context indicates a treatment group outcome of $p=0.04$ and the model states the intervention lacked statistical significance ($p>0.05$), the generation constitutes an intrinsic hallucination.
+\subsubsection{Condition 2: Closed-Book No-Context (PAR)}
+Abstracts are omitted ($c_i = \varnothing$) to measure the \textit{Parametric Alignment Rate} (PAR), capturing how often pre-trained weights alone match the ground-truth label without evidence, alongside its complement, the \textit{Context Dependence Rate} ($1 - \text{PAR}$):
+\begin{equation}
+\text{PAR} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{I}(\hat{y}_i^{(2)} = y_i).
+\end{equation}
 
-\textbf{Extrinsic Hallucinations:} An extrinsic hallucination occurs when the model introduces factual statements that can neither be confirmed nor refuted based on the prompt's provided background \cite{huang2023survey}. In open-domain literature synthesis, introducing ungrounded auxiliary hypotheses creates significant risk for downstream empirical validation.
+\subsubsection{Condition 3: Counterfactual Inverted Context (CFR)}
+Deterministic regular expressions flip primary conclusion verbs and efficacy qualifiers in $c_i$ to construct $\tilde{c}_i$ (such as replacing \textit{``is significantly associated with''} with \textit{``is not significantly associated with''}, or \textit{``significantly improved''} with \textit{``did not improve''}). Binary labels invert accordingly ($\tilde{y}_i = \texttt{no}$ when $y_i = \texttt{yes}$, $\tilde{y}_i = \texttt{yes}$ when $y_i = \texttt{no}$, and $\tilde{y}_i = \texttt{maybe}$ otherwise), defining the \textit{Context Faithfulness Rate} (CFR):
+\begin{equation}
+\text{CFR} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{I}(\hat{y}_i^{(3)} = \tilde{y}_i).
+\end{equation}
 
-\subsection{Semantic and Epistemic Nature}
-\textbf{Factual Hallucinations:} Factual hallucinations arise when an output directly violates established consensus, physical laws, or empirical data stored in real-world knowledge graphs \cite{huang2023survey}. These errors bifurcate into:
-\begin{itemize}
-    \item \textbf{Intrinsic Factuality Violations:} Flaws in the model's static parametric weights formed during pre-training.
-    \item \textbf{Extrinsic Factuality Violations:} Failure to retrieve or ground reasoning within external context retrieved via Retrieval-Augmented Generation (RAG).
-\end{itemize}
+\subsubsection{Condition 4: Irrelevant Distractor Context (IHR)}
+Each question $q_i$ is matched via cyclic derangement $c_{\pi(i)}$ with $\pi(i) = (i + s) \bmod N$ ($s \neq 0$) to an unrelated abstract from a different study. Because the paired text provides no relevant evidence, any \texttt{yes} or \texttt{no} verdict counts toward the \textit{Intrinsic Hallucination Rate} (IHR), whereas \texttt{maybe} marks proper abstention ($1 - \text{IHR}$):
+\begin{equation}
+\text{IHR} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{I}\left(\hat{y}_i^{(4)} \in \{\texttt{yes}, \texttt{no}\}\right).
+\end{equation}
 
-\textbf{Structural and Logical Hallucinations:} These include non-sequiturs, mathematical reasoning breakdowns across intermediate steps, and semantic self-contradictions within the generated text.
+\subsection{\texorpdfstring{Macro-$F_1$}{Macro-F1} and Confidence Bounds}
+Alongside raw rates, we compute unweighted three-class $\text{Macro-}F_1$:
+\begin{equation}
+\text{Macro-}F_1 = \frac{1}{3}\sum_{k \in \{\texttt{yes},\texttt{no},\texttt{maybe}\}} \frac{2\,\text{TP}_k}{2\,\text{TP}_k + \text{FP}_k + \text{FN}_k},
+\end{equation}
+paired with exact $95\%$ Clopper–Pearson binomial confidence intervals and two-sided exact binomial tests.
 
-\subsection{Etiology and Mathematical Mechanics}
-Hallucinations in scientific models stem from several foundational causes:
-\begin{enumerate}
-    \item \textbf{Uncurated Pre-training Corpora:} Training on corpora containing outdated scientific assumptions embeds falsehoods directly into model weights \cite{lin2022truthfulqa}.
-    \item \textbf{Source-Reference Divergence:} If training pairs associate abstract concepts with unsupported reference claims, the objective teaches the model to extrapolate beyond the supplied premises \cite{huang2023survey}.
-    \item \textbf{Probabilistic Decoding Dynamics:} Autoregressive decoding algorithms (e.g., nucleus sampling with temperature $\tau>0$) trade off factual determinism in favor of lexical entropy \cite{rawte2023survey}:
-    \begin{equation}
-    p(x_{t}=w_{i}\mid x_{<t}) = \frac{\exp(z_{i}/\tau)}{\sum_{j}\exp(z_{j}/\tau)}.
-    \end{equation}
-    At higher values of $\tau$, the model samples from the distribution tail, increasing the probability of hallucinatory tokens.
-\end{enumerate}
+\section{Baseline Prompt Recalibration}
+Our initial zero-shot run on Condition 1 reached only $50.00\%$ accuracy ($\text{Macro-}F_1 = 0.4620$). Inspecting the raw prediction logs showed why: the model output \texttt{maybe} on $99$ of $200$ items ($49.5\%$), nearly triple the ground-truth \texttt{maybe} share of $17.0\%$.
 
 \begin{figure}[t]
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[
-    node distance=0.55cm,
-    box/.style={rectangle, rounded corners, draw=black, fill=blue!10, font=\scriptsize\bfseries, align=center, inner sep=4pt, minimum height=0.8cm},
-    outbox/.style={rectangle, rounded corners, draw=black, font=\scriptsize\bfseries, align=center, inner sep=4pt},
-    arrow/.style={->, >=stealth, thick}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=11pt,
+    width=\columnwidth,
+    height=5.2cm,
+    ylabel={Sample Count ($N=200$)},
+    symbolic x coords={yes, no, maybe},
+    xtick=data,
+    ymin=0, ymax=120,
+    legend style={at={(0.5,1.03)}, anchor=south, legend columns=3, font=\scriptsize},
+    nodes near coords,
+    nodes near coords align={vertical},
+    every node near coord/.append style={font=\tiny},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize}
 ]
-\node[box] (claim) {Scientific\\Claim $Y$};
-\node[box, right=of claim] (decomp) {Atomic Decomp\\$\mathcal{A}(Y)$};
-\node[box, right=of decomp] (entail) {Evidence\\Entailment $\mathcal{E}$};
-\node[outbox, fill=green!15, above right=0.25cm and 0.5cm of entail] (sup) {Supported ($1$)};
-\node[outbox, fill=red!15, below right=0.25cm and 0.5cm of entail] (ref) {Refuted ($0$)};
-
-\draw[arrow] (claim) -- (decomp);
-\draw[arrow] (decomp) -- (entail);
-\draw[arrow] (entail) -- (sup);
-\draw[arrow] (entail) -- (ref);
-\end{tikzpicture}%
-}
-\caption{End-to-end operational architecture of an automated atomic-fact verification pipeline (e.g., FActScore \cite{min2023factscore}).}
-\label{fig:factscore}
+\addplot[fill=gray!45] coordinates {(yes,100) (no,66) (maybe,34)};
+\addplot[fill=red!45] coordinates {(yes,67) (no,34) (maybe,99)};
+\addplot[fill=blue!55] coordinates {(yes,98) (no,64) (maybe,38)};
+\legend{Ground Truth, Uncalibrated, Calibrated}
+\end{axis}
+\end{tikzpicture}
+\caption{Condition 1 predicted class counts before and after prompt recalibration ($N=200$). Adjusting the prompt curbed false \texttt{maybe} hedging ($99 \to 38$ predictions) and matched ground-truth class proportions.}
+\label{fig:calibration}
 \end{figure}
 
-\section{Literature Review: Domain-Specific Scientific Benchmarks}
-Evaluating scientific truthfulness requires measuring spatial reasoning, adherence to physical constants, multi-step calculation, and complex synthesis across conflicting literature.
-
-\subsection{General Sciences, Physics, and Mathematics}
-\textbf{SciEval and Bloom's Taxonomy:} Sun et al. \cite{sun2024scieval} introduced SciEval, comprising roughly 18,000 multi-disciplinary questions across chemistry, physics, and biology. Derived from Bloom's Taxonomy, SciEval assesses four progressive cognitive levels: basic recall, applied domain knowledge, scientific calculation, and research-level synthesis. SciEval addresses static data contamination through dynamically generated numerical subsets. Although GPT-4 achieves 73.93\% on static questions, its performance declines on dynamic physics calculations, demonstrating the gap between memorization and symbolic reasoning \cite{sun2024scieval}.
-
-\textbf{GPQA and Scalable Oversight:} Rein et al. \cite{rein2023gpqa} developed GPQA, comprising 448 multiple-choice questions written and validated by domain experts holding or pursuing PhDs in biology, chemistry, and physics. These questions are intentionally ``Google-proof''. Non-expert validators with PhDs in unrelated domains spent over 30 minutes per question with unrestricted internet access, achieving only 34\% accuracy. By contrast, domain experts achieved 65\% accuracy, while baseline GPT-4 attained 39\% \cite{rein2023gpqa}. GPQA establishes an empirical testbed for scalable oversight: supervising systems whose cognitive outputs surpass the verification capacity of human non-experts.
-
-\textbf{SciBench:} Wang et al. \cite{wang2024scibench} created SciBench, featuring 695 college-level textbook problems requiring multi-step calculus, thermodynamics, and quantum mechanical derivations. Models frequently fail along intermediate mathematical trajectories, underscoring the brittleness of purely statistical token prediction in formal mathematics.
-
-\subsection{Biomedical and Clinical Systems}
-\textbf{Med-PaLM and Clinical Question-Answering:} Benchmark evaluation in clinical medicine centers on datasets such as MedQA \cite{jin2021disease} (USMLE-style vignettes) and PubMedQA \cite{jin2019pubmedqa}. Singhal et al. \cite{singhal2023large} introduced Med-PaLM, the first model to surpass the USMLE passing threshold (67.2\%). Its successor, Med-PaLM 2 \cite{singhal2023towards}, achieved 86.5\% on MedQA through ensemble refinement and retrieval-augmented reasoning. Physician raters favored Med-PaLM 2 long-form answers over human clinician responses across 8 of 9 operational axes, including factual consensus alignment (preferred 72.9\% of the time) \cite{singhal2023towards}.
-
-\textbf{Adversarial Hallucination Testing via Med-HALT:} Umapathi et al. \cite{umapathi2023medhalt} developed Med-HALT (Medical Domain Hallucination Test) to evaluate hallucination triggers. By introducing contradictory medical premises, Med-HALT measures the frequency of false confirmations, providing an auditing protocol prior to clinical integration.
-
-\subsection{Chemistry, Molecular Graphs, and Multimodality}
-\textbf{ChemBench:} Jablonka et al. \cite{jablonka2024superhuman} introduced ChemBench, comprising 2,700 question-answer pairs spanning stoichiometry, thermodynamics, and synthesis design. For quantitative answers, ChemBench requires numeric predictions to fall within a 1\% Mean Absolute Error (MAE) threshold. While state-of-the-art models achieved parity with professional chemists on macro scores, their failure modes revealed severe overconfidence and basic errors in rudimentary tasks like ring counting and stoichiometric balancing \cite{jablonka2024superhuman}.
-
-\textbf{Multimodal Frontiers with MACBENCH:} Scientific literature relies on multimodal data representations, including nuclear magnetic resonance (NMR) spectra, crystal diffraction patterns, and electron microscopy. The MACBENCH framework \cite{anonymous2024macbench} evaluates Vision-Language Models (VLMs) on physical chemistry figures, exposing high rates of visual hallucination when deducing laboratory safety hazards or identifying crystal structures.
-
-\section{Evolution of Factuality Evaluation Methodologies}
-The metrics used to quantify factual precision in natural language systems have shifted significantly over time, as shown in Figure~\ref{fig:tradeoff}.
-
-\begin{figure}[t]
-\centering
-\resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[
-    node distance=0.8cm,
-    stage/.style={rectangle, rounded corners, draw=black, font=\scriptsize\bfseries, align=center, inner sep=5pt},
-    arrow/.style={->, >=stealth, thick}
-]
-\draw[arrow] (0,0) -- (6.2,0) node[right, font=\scriptsize] {Latency / Cost};
-\draw[arrow] (0,0) -- (0,3.2) node[above, font=\scriptsize] {Rigor};
-
-\node[stage, fill=blue!12] (s1) at (1.3, 0.7) {BLEU / ROUGE\\{\normalfont\scriptsize Lexical Matching}};
-\node[stage, fill=green!12] (s2) at (3.2, 1.65) {FActScore / FELM\\{\normalfont\scriptsize Atomic NLI}};
-\node[stage, fill=orange!15] (s3) at (4.9, 2.6) {GPQA / Probing\\{\normalfont\scriptsize Scalable Oversight}};
-
-\draw[->, >=stealth, dashed, red!75, thick] (s1) -- (s3);
-\end{tikzpicture}%
-}
-\caption{Deployment trade-off space comparing factuality evaluation frameworks across verification latency and epistemic rigor.}
-\label{fig:tradeoff}
-\end{figure}
-
-\subsection{Limitations of Lexical Overlap}
-Natural language generation historically relied on $n$-gram overlap metrics:
-\begin{equation}
-\text{BLEU} = BP \cdot \exp\left(\sum_{n=1}^{N} w_{n}\ln p_{n}\right),
-\end{equation}
-and ROUGE-L (based on Longest Common Subsequences) \cite{lin2004rouge,papineni2002bleu}. These metrics are unsuited for scientific verification: an LLM can achieve high lexical overlap while completely inverting scientific meaning through a single incorrect token or misplaced negation.
-
-\subsection{Fine-Grained Atomic Decomposition: FActScore}
-To address long-form scientific generation, Min et al. \cite{min2023factscore} formulated FActScore. Given a model output $Y$, an extraction operator $\mathcal{A}$ decomposes the text into a set of discrete, atomic claims:
-\begin{equation}
-\mathcal{A}(Y) = \{c_{1}, c_{2}, \dots, c_{k}\}.
-\end{equation}
-Each atomic proposition $c_{i}$ is evaluated against an authoritative knowledge base $\mathcal{K}$ through an entailment function $\mathcal{E}(c_{i},\mathcal{K})\in\{0,1\}$. The aggregate FActScore metric is computed as:
-\begin{equation}
-\text{FActScore}(Y,\mathcal{K}) = \frac{1}{|\mathcal{A}(Y)|}\sum_{i=1}^{|\mathcal{A}(Y)|}\mathcal{E}(c_{i},\mathcal{K}).
-\end{equation}
-This operational pipeline is illustrated in Figure~\ref{fig:factscore}. On long-form generation, models such as ChatGPT achieved only 58\% atomic precision despite maintaining fluent text generation \cite{min2023factscore}.
-
-\subsection{Classifier and Representation-Space Probing}
-Recent developments utilize Natural Language Inference (NLI) classifiers to compute semantic entailment scores over scientific propositions \cite{chen2023felm}. Concurrently, mechanistic interpretability approaches analyze the geometric representations inside LLM activation streams. Techniques such as Contrastive Activation Addition (CAA) \cite{rimsky2023steering} map truthfulness activation vectors in the residual stream, allowing internal hallucination detection prior to token emission.
-
-\subsection{Inverse Scaling Dynamics}
-Lin et al. \cite{lin2022truthfulqa} documented the phenomenon of inverse scaling on TruthfulQA. When evaluating model families across scale, larger models (e.g., GPT-3 175B) were systematically less truthful than smaller variants on questions targeted at common human misconceptions. Larger architectures more effectively capture human web misconceptions present in pre-training data, producing imitative falsehoods \cite{lin2022truthfulqa}. Scaling parameter capacity alone is insufficient to guarantee scientific factuality.
-
-\section{Comparative Analysis of Models and Datasets}
-A systematic comparison of representative architectures and diagnostic benchmarks is summarized in Table~\ref{tab:models} and Table~\ref{tab:benchmarks}.
+Row-by-row error inspection revealed that standard academic caveats at the end of PubMed abstracts (e.g., \textit{``larger prospective trials are warranted''}) repeatedly triggered false \texttt{maybe} classifications even when the study reported a clear outcome. Revising the system instruction to target the authors' primary empirical conclusion—reserving \texttt{maybe} strictly for inconclusive, contradictory, or missing evidence—resolved this over-hedging (Figure~\ref{fig:calibration}). As reported in Table~\ref{tab:baseline_metrics}, accuracy rose by $+12.50$ percentage points to $62.50\%$ ($\text{Macro-}F_1 = 0.5867$) with zero unparseable generations.
 
 \begin{table}[t]
 \centering
-\caption{Comparative taxonomy of representative state-of-the-art architectures and their characteristic scientific failure modes.}
-\label{tab:models}
-\footnotesize
-\begin{tabularx}{\columnwidth}{>{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X}
+\caption{Calibrated Baseline Performance on Stratified PubMedQA ($N=200$).}
+\label{tab:baseline_metrics}
+\small
+\begin{tabularx}{\columnwidth}{>{\raggedright\arraybackslash}X c c c}
 \toprule
-\textbf{Model Family} & \textbf{Core Mechanism} & \textbf{Primary Bottlenecks} \\
+\textbf{Baseline Variant} & \textbf{Acc. ($\uparrow$)} & \textbf{Macro-$F_1$} & \textbf{Latency} \\
 \midrule
-GPT-4 / 4o \cite{openai2024gpt4} & Dense Autoregressive & Context-neglect in long derivations \\
-Med-PaLM 2 \cite{singhal2023towards} & Clinical Tuning with ER & High test-time ensemble latency \\
-Claude 3.5 Sonnet \cite{anthropic2024claude} & Constitutional Transformer & Multi-truth ambiguity breakdown \\
-ChemLLM \cite{zhang2024chemllm} & Molecular Token Adapted & Failure on unseen dynamic topologies \\
-o1 / o3-mini \cite{openai2024reasoning} & Test-Time Search & Latent reasoning path hallucination \\
+Uncalibrated Baseline & 50.00\% & 0.4620 & $\sim$1.15s \\
+Calibrated Baseline (Cond. 1) & 62.50\% & 0.5867 & $\sim$1.17s \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\begin{table}[t]
+\section{Experimental Results and Discussion}
+\subsection{Quantitative Overview}
+Table~\ref{tab:perturbation_matrix} and Figure~\ref{fig:matrix_eval} summarize model behavior across all four conditions ($800$ total inferences), pairing each diagnostic metric with its positive operational interpretation.
+
+\begin{table*}[t]
 \centering
-\caption{Systematic landscape of core scientific factuality and reasoning benchmarks.}
-\label{tab:benchmarks}
-\footnotesize
-\begin{tabularx}{\columnwidth}{>{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{1.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.55cm}}
+\caption{Empirical Performance and Behavioral Metrics Across the 4-Condition Perturbation Matrix ($N=200$ per Condition). Arrows indicate desired optimization direction ($\uparrow$ higher is better; $\downarrow$ lower is better).}
+\label{tab:perturbation_matrix}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X c c}
 \toprule
-\textbf{Benchmark} & \textbf{Modality} & \textbf{Target Domain} & \textbf{Metric} \\
+\textbf{Experimental Condition} & \textbf{Primary Metric} & \textbf{Score} & \textbf{Operational Interpretation} & \textbf{Macro-$F_1$} & \textbf{95\% CI} \\
 \midrule
-GPQA \cite{rein2023gpqa} & Text & Physics, Chem., Bio (PhD) & Accuracy (\%) \\
-SciEval \cite{sun2024scieval} & Text & Multi-level General Science & Bloom's Acc (\%) \\
-ChemBench \cite{jablonka2024superhuman} & Text/Num & Physical \& Inorganic Chemistry & $\text{MAE} < 1\%$ \\
-PubMedQA \cite{jin2019pubmedqa} & Text & Biomedical Literature & Reasoning $F_1$ \\
-Med-HALT \cite{umapathi2023medhalt} & Text & Clinical Medical Reasoning & Hallucination Res. \\
-MACBENCH \cite{anonymous2024macbench} & Multimodal & Chemistry \& Materials Science & Grounded VQA \\
-TruthfulQA \cite{lin2022truthfulqa} & Text & Scientific \& General Fallacies & \% Truthful \\
+Cond. 1: Clean Baseline & Categorical Accuracy ($\uparrow$) & 62.50\% & Active abstract comprehension & 0.5867 & $[0.555, 0.691]$ \\
+Cond. 2: Closed-Book (No-Ctx) & Parametric Alignment ($\downarrow$) & 17.50\% & \textbf{82.50\%} Context Dependence ($\uparrow$) & 0.1039 & $[0.126, 0.233]$ \\
+Cond. 3: Counterfactual Inv. & Context Faithfulness ($\uparrow$) & 31.50\% & 68.50\% Conservative Inertia & 0.2482 & $[0.252, 0.383]$ \\
+Cond. 4: Irrelevant Distractor & Intrinsic Hallucination ($\downarrow$) & 0.00\% & \textbf{100.00\%} Distractor Abstention ($\uparrow$) & 0.3333$^{\dagger}$ & $[0.000, 0.018]$ \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\vspace{3pt}
+\parbox{\textwidth}{\footnotesize $^{\dagger}$In Condition 4, $\text{Macro-}F_1 = 0.3333$ reflects $100\%$ precision and recall on the single target abstention class (\texttt{maybe}) across three classes.}
+\end{table*}
 
-\subsection{Architectural Paradigms}
-Table~\ref{tab:models} highlights the tradeoffs across foundation models. Models utilizing test-time search (e.g., OpenAI o1/o3-mini) exhibit stronger logical coherence on multi-step mathematical derivations. However, fine-tuned biomedical architectures like Med-PaLM 2 require structured ensemble refinement to prevent context neglect \cite{singhal2023towards}.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=14pt,
+    width=\columnwidth,
+    height=5.8cm,
+    ylabel={Percentage / Score (\%)},
+    symbolic x coords={Clean Acc, Ctx Dep, CFR, Abstain Acc},
+    xtick=data,
+    ymin=0, ymax=115,
+    legend style={at={(0.5,1.03)}, anchor=south, legend columns=2, font=\scriptsize},
+    nodes near coords,
+    nodes near coords align={vertical},
+    every node near coord/.append style={font=\tiny},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize}
+]
+\addplot[fill=teal!65] coordinates {(Clean Acc,62.50) (Ctx Dep,82.50) (CFR,31.50) (Abstain Acc,100.00)};
+\addplot[fill=orange!65] coordinates {(Clean Acc,58.67) (Ctx Dep,10.39) (CFR,24.82) (Abstain Acc,33.33)};
+\legend{Positive Operational Rate (\%), Macro-$F_1$ ($\times 100$)}
+\end{axis}
+\end{tikzpicture}
+\caption{Positive operational performance across the four conditions ($N=200$ per condition): Clean Accuracy ($62.50\%$), Closed-Book Context Dependence ($1-\text{PAR} = 82.50\%$), Counterfactual Faithfulness ($\text{CFR} = 31.50\%$), and Distractor Abstention Accuracy ($1-\text{IHR} = 100.00\%$).}
+\label{fig:matrix_eval}
+\end{figure}
 
-\subsection{Benchmark Landscape}
-As detailed in Table~\ref{tab:benchmarks}, benchmarks vary significantly across evaluation stringency. While static question-answering benchmarks (e.g., PubMedQA) are vulnerable to data leakage, dynamic datasets like SciEval and ChemBench test operational understanding by modifying stoichiometric balances and physical boundary conditions programmatically \cite{jablonka2024superhuman,sun2024scieval}.
+\subsection{Closed-Book Collapse vs. Contextual Extraction}
+Removing the abstract in Condition 2 drops ungrounded answer alignment to $\text{PAR} = 17.50\%$ ($35/200$ items; $\text{Macro-}F_1 = 0.1039$, $95\%$ CI $[0.126, 0.233]$), corresponding to an $82.50\%$ Context Dependence Rate. Without supporting text, the model abstains via \texttt{maybe} on nearly every prompt rather than guessing from pre-trained weights. That sharp drop confirms that Condition 1 performance comes from reading the provided abstract rather than recalling memorized test answers.
 
-\section{Open Challenges and Future Directions}
-Despite the advances highlighted in Section 4 and Section 5, benchmarking scientific factuality faces four fundamental bottlenecks:
+\subsection{Conservative Inertia Under Conclusion Inversion}
+Flipping focal conclusion verbs in Condition 3 yields a Context Faithfulness Rate of $31.50\%$ ($63/200$ items; $\text{Macro-}F_1 = 0.2482$, $95\%$ CI $[0.252, 0.383]$), leaving $68.50\%$ ($137/200$) of trials unflipped. Two factors drive this resistance. First, parametric priors resist categorical verdicts that run counter to established clinical relationships. Second, regex verb inversion alters qualitative conclusion phrasing while leaving quantitative evidence (such as $p < 0.01$ or hazard ratios) untouched; when a flipped sentence contradicts reported statistics in the same passage, the model tends to resolve the conflict by defaulting to \texttt{maybe}.
 
-\subsection{Data Contamination and Benchmark Memorization}
-Proprietary models scrape massive web corpora that often include public evaluation suites \cite{sun2024scieval}. When static benchmarks leak into training corpora, models recall answers rather than performing genuine scientific inference. Developing procedurally synthesized benchmarks that dynamically generate scientific problems at inference time is a crucial priority.
+\subsection{Complete Abstention on Irrelevant Distractors}
+In Condition 4, pairing each question with an unrelated biomedical abstract produces a $0.00\%$ Intrinsic Hallucination Rate ($0/200$ ungrounded \texttt{yes}/\texttt{no} outputs; $95\%$ CI $[0.000, 0.018]$), representing $100.00\%$ Distractor Abstention Accuracy. Against a random binary guessing baseline ($p_0 = 0.50$), an exact two-sided binomial test yields $p = 1.24 \times 10^{-60}$. Across all $200$ trials, the calibrated prompt led the model to detect the topical mismatch and abstain cleanly.
 
-\subsection{Context Neglect in Retrieval-Augmented Pipelines}
-Although RAG provides verified external literature, models frequently display context neglect, defaulting to flawed internal parametric priors. Resolving multi-hop logical deductions across dense academic references remains a difficult problem \cite{shami2026benchmarking}.
+\subsection{Qualitative Behavioral Breakdown}
+Table~\ref{tab:case_studies} summarizes the recurring decision patterns found during manual inspection of the $800$ prediction records.
 
-\subsection{Multi-Truth Scenarios and Citation Integrity}
-Scientific research often involves open debates where multiple valid hypotheses coexist. Current LLMs frequently collapse nuance into singular declarations \cite{patel2024factuality}. Moreover, when prompted to cite evidence, models often produce hallucinated digital object identifiers (DOIs) or misattribute experimental findings \cite{patel2024factuality}.
+\begin{table*}[t]
+\centering
+\caption{Qualitative Behavioral Breakdown Across Experimental Regimes from Audited Prediction Logs.}
+\label{tab:case_studies}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Regime} & \textbf{Evidential Manipulation} & \textbf{Model Verdict} & \textbf{Diagnostic Interpretation} \\
+\midrule
+Cond. 1 (Uncalib.) & Original abstract ending with standard caveat (\textit{``further studies needed''}) & \texttt{maybe} (Error) & Epistemic over-hedging mistakes routine scientific caution for missing findings. \\
+Cond. 1 (Calib.) & Same abstract under verdict-extraction prompt calibration & \texttt{yes} (Correct) & Prompt calibration separates primary study outcomes from secondary caveats. \\
+Cond. 2 (Closed-Book) & Abstract stripped ($c_i = \varnothing$); clinical question asked alone & \texttt{maybe} (Abstain) & $82.50\%$ context dependence ($\text{PAR}=17.50\%$) confirms minimal dataset memorization. \\
+Cond. 3 (Inverted) & Conclusion flipped (\textit{``did not improve''}) while $p=0.003$ remains in text & \texttt{maybe} (Inertia) & Intra-abstract statistical tension and priors block counterfactual updating ($\text{CFR}=31.50\%$). \\
+Cond. 4 (Distractor) & Question paired via cyclic derangement with unrelated oncology abstract & \texttt{maybe} (Correct) & $100.00\%$ distractor abstention suppresses intrinsic hallucination ($\text{IHR}=0.00\%$). \\
+\bottomrule
+\end{tabularx}
+\end{table*}
 
-\subsection{Vision-Language Multimodal Hallucinations}
-The shift toward multimodal architectures (e.g., MACBENCH) introduces novel failure modes, such as misinterpreting microscopy artifacts, mistaking spatial orientations in structural biology, or hallucinating features in NMR spectra \cite{anonymous2024macbench}. Future benchmarks must systematically audit cross-modal grounding.
+\section{Limitations and Future Work}
+Three boundary conditions apply to our findings. All experiments used 4-bit NF4 quantized weights, which narrow output logit margins and may amplify conservative \texttt{maybe} abstentions compared to unquantized FP16 checkpoints. In addition, Condition 3 relies on regular-expression conclusion inversion rather than full-abstract semantic rewriting, leaving secondary numerical statistics unflipped. Finally, while $N=200$ yields tight confidence bounds for macro behavioral shifts, larger splits are required to compare performance across individual medical sub-specialties.
+
+Next steps include full-abstract counterfactual rewriting to align qualitative conclusions with reported statistics, precision ablations comparing NF4, INT8, and FP16 checkpoints on the same split, and activation probing \cite{rimsky2023steering} to identify which attention layers enforce parametric inertia.
 
 \section{Conclusion}
-Benchmarking the factual accuracy of Large Language Models across the natural sciences remains a central challenge in artificial intelligence. As foundation models assume greater responsibility in clinical medicine, materials design, and mathematical derivation, statistical fluency without empirical grounding introduces serious risks. This survey categorized hallucination taxonomies, reviewed specialized benchmarks across scientific disciplines, and traced the shift from lexical overlap metrics to fine-grained atomic claim evaluation and internal representation probing. Mitigating scientific hallucination will require moving beyond static test suites toward dynamic procedural benchmarks, robust scalable oversight frameworks, and autonomous, self-verifying scientific agents.
+We evaluated factual accuracy and hallucination behavior in a 4-bit NF4 quantized \texttt{Qwen/Qwen2.5-7B-Instruct} checkpoint across a stratified $N=200$ PubMedQA matrix. Correcting instruction-induced over-hedging raised clean accuracy from $50.00\%$ to $62.50\%$ ($\text{Macro-}F_1 = 0.5867$). Across $800$ deterministic inferences, the model demonstrated strong contextual grounding ($82.50\%$ Context Dependence Rate; $\text{PAR} = 17.50\%$) and $100.00\%$ Distractor Abstention Accuracy ($\text{IHR} = 0.00\%$), while a $31.50\%$ Context Faithfulness Rate under conclusion inversion highlighted lingering conservative inertia when modified text conflicts with parametric priors and unflipped numerical evidence.
 
 \bibliographystyle{plainurl}
 \bibliography{references}
