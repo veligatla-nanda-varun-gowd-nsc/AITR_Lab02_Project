@@ -1,0 +1,48 @@
+# AI Audit & Experimental Verification Report (`docs/ai_audit_report.md`)
+
+**Project:** Benchmarking Factual Accuracy and Hallucination Dynamics of Large Language Models Across Scientific Domains  
+**Target Checkpoint:** `Qwen/Qwen2.5-7B-Instruct` (4-bit NF4 double quantization, `bfloat16` compute)  
+**Evaluation Split:** Stratified PubMedQA (`pqa_labeled`, $N = 200$, seed `42`: `100 yes`, `66 no`, `34 maybe`)  
+**Decoding Configuration:** Deterministic greedy decoding ($\tau = 0.0$, `do_sample=False`, `max_new_tokens=16`)
+
+---
+
+## 1. Executive Audit Summary
+This audit verifies the integrity, reproducibility, and quantitative accuracy of all experimental artifacts across the repository (`data/`, `src/`, `scripts/`, `results/`, `docs/`, and `papers/main.tex`). Every metric reported in the manuscript has been cross-checked against raw deterministic inference logs (`800` total model calls across four evidential conditions).
+
+* **Data Integrity:** `PASS` — Frozen stratified split (`data/pqa_eval_200.json`) matches exact class counts (`100 yes`, `66 no`, `34 maybe`).
+* **Execution Reproducibility:** `PASS` — Zero sampling variance ($\tau = 0.0$), `0.0%` unparseable outputs (`0/800`), peak VRAM `< 5.5 GB`.
+* **Statistical Grounding:** `PASS` — Exact $95\%$ Clopper–Pearson binomial confidence intervals and two-sided binomial tests verified.
+* **Citation & Artifact Consistency:** `PASS` — All 18 BibTeX entries in `papers/references.bib` verified against live DOIs/URLs; figures rendered natively via TikZ/PGFPlots.
+
+---
+
+## 2. Quantitative Cross-Check Matrix (`results/` vs. `papers/main.tex`)
+
+| Experimental Condition | Source Artifact | Primary Metric | Verified Value | Operational Rate | Macro-$F_1$ | 95% CI | Status |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Cond. 1 (Uncalibrated)** | `docs/debugging_log.md` | Categorical Accuracy ($\uparrow$) | `50.00%` (`100/200`) | `49.5%` `maybe` hedging | `0.4620` | — | Verified |
+| **Cond. 1 (Calibrated)** | `results/baseline_predictions.csv` | Categorical Accuracy ($\uparrow$) | **`62.50%`** (`125/200`) | `+12.50%` calibration gain | **`0.5867`** | `[0.555, 0.691]` | Verified |
+| **Cond. 2 (Closed-Book)** | `results/perturbation_predictions.csv` | Parametric Alignment ($\downarrow$) | **`17.50%`** (`35/200`) | **`82.50%`** Context Dependence ($\uparrow$) | **`0.1039`** | `[0.126, 0.233]` | Verified |
+| **Cond. 3 (Counterfactual)** | `results/perturbation_predictions.csv` | Context Faithfulness ($\uparrow$) | **`31.50%`** (`63/200`) | `68.50%` Conservative Inertia | **`0.2482`** | `[0.252, 0.383]` | Verified |
+| **Cond. 4 (Distractor)** | `results/perturbation_predictions.csv` | Intrinsic Hallucination ($\downarrow$) | **`0.00%`** (`0/200`) | **`100.00%`** Distractor Abstention ($\uparrow$) | **`0.3333`** | `[0.000, 0.018]` | Verified |
+
+---
+
+## 3. Methodological & Anomaly Audit
+
+1. **Prompt Calibration Audit (`docs/debugging_log.md`):**
+   * Uncalibrated zero-shot prompting collapsed `99/200` predictions (`49.5%`) into `maybe` and yielded `24.24%` recall on `no` cases (`42/66` misclassified as `maybe`).
+   * Updating the system instruction to target primary empirical conclusions raised accuracy to `62.50%` without modifying weights or decoding parameters.
+2. **Closed-Book Memorization Check (Condition 2):**
+   * Removing the abstract drops accuracy by `45.00` percentage points (`62.50%` $\to$ `17.50%`), confirming that baseline performance reflects active in-context extraction rather than weight memorization.
+3. **Counterfactual Inertia Check (Condition 3):**
+   * Regex verb inversion alters qualitative conclusion phrasing while leaving quantitative covariates ($p$-values, confidence intervals) intact; internal passage tension and pre-trained priors lead the quantized model to abstain (`maybe`) on `68.50%` of trials (`CFR = 31.50%`).
+4. **Distractor Safety Significance (Condition 4):**
+   * Under cyclic derangement pairing (`200` unrelated abstracts), the model abstained on `200/200` trials (`IHR = 0.00%`, exact two-sided binomial $p = 1.24 \times 10^{-60}$ vs. random binary guessing $p_0 = 0.50$).
+
+---
+
+## 4. Academic Integrity & AI Usage Compliance
+* **No Fabricated Data:** All metrics originate strictly from deterministic GPU runs logged in `results/`.
+* **Human-Led Authorship & Review:** All experimental code, statistical audits, limitation disclosures, and manuscript revisions were reviewed and verified by the author.
